@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="uk"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Діагностика теплогенераторів GP 70 / GP 95 · v36</title>
+<title>Діагностика GP 70 / GP 95</title>
+<link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><meta name="theme-color" content="#e8590c"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Heater">
 <style>
 :root{--bg:#f4f5f7;--fg:#1c2127;--card:#fff;--bd:#d5d9de;--mut:#5d6672;--ac:#e8590c;--err:#e03131;--ok:#2f9e44;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14171a;--fg:#e6e9ec;--card:#1e2328;--bd:#343b43;--mut:#9aa4af;color-scheme:dark}}
@@ -62,11 +63,10 @@ h2{font-size:18px}h3{font-size:16px}
 .grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}.tgrid{grid-template-columns:1fr}
 .chip{min-height:38px}.st{padding:10px}
 }
-</style><link rel="manifest" href="manifest.webmanifest?v=43"><meta name="theme-color" content="#ea580c"><link rel="icon" href="icons/icon.svg?v=43">
-</head><body>
+</style></head><body>
 <header><b>🔥 Діагностика GP 70 / GP 95</b>
 
-<span><button data-v="home" onclick="go('home')">Головне меню</button> <button data-v="faults" onclick="go('faults')">Помилки</button> <button data-v="algo" onclick="go('algo')">Алгоритм запуску</button> </span><span style="font-size:11px;opacity:.65;margin-left:auto">build v43</span></header>
+<span><button data-v="home" onclick="go('home')">Головне меню</button> <button data-v="faults" onclick="go('faults')">Помилки</button> <button data-v="algo" onclick="go('algo')">Алгоритм запуску</button> </span></header>
 <main id="app"></main>
 <script>
 const $=s=>document.querySelector(s);
@@ -1677,7 +1677,7 @@ function openSim(){
  const mk=()=>({state:'off',stage:-1,t:0,mode:2,err:'',warn:'',burn:false,fl:false,fan:false,spark:false,valve:false,ion:0,dem:false,att:0,show:0,pend:null,pendT:0,win:2,lastStop:-99,runT:0,decay:false,lowT:0,failStage:-1,lockT:0,stopDelay:0,pre:5,lowFlame:0});
  let X=mk();
  function rtRnd(){return Math.round((10+Math.random()*10)*2)/2}
- const o=ov(`<div class="rt"><h2>⏱ Пуск у реальному часі</h2>
+ const o=ov(`<div class="rt"><h2>⏱ Запуск</h2>
  <div class="rt-bar"><div class="rt-seg rt-sm"><button data-rm="ACU">ACU</button><button data-rm="BCU">BCU</button></div>
  <div class="rt-seg rt-sv"><button data-rv="sim">🎛 Симулятор</button><button data-rv="trn">🎓 Тренування</button></div>
  <select class="rt-sp"><option value="1">×1 (реальний час)</option><option value="2">×2</option><option value="4">×4</option><option value="8">×8</option></select></div>
@@ -2021,85 +2021,67 @@ function syncFuses39(){
 }
 const __fx39=fx;fx=function(){__fx39();syncFuses39()};
 syncFuses39();
-</script>
-<style id="v40-style">
-/* v40 requested corrections */
-.v36-fab button[data-a="sim"]{display:none!important}
-.node-faults{display:grid;gap:8px;margin-top:14px}.node-fault{display:flex;align-items:flex-start;gap:9px;width:100%;text-align:left;padding:10px 12px;border:1px solid #d7dde5;border-radius:10px;background:#fff;color:#1f2937;cursor:pointer}.node-fault.on{border-color:#dc2626;background:#fff1f2;color:#991b1b}.node-fault small{display:block;color:#667085;margin-top:3px}.node-fault-dot{width:11px;height:11px;border-radius:50%;background:#9ca3af;margin-top:5px;flex:0 0 auto}.node-fault.on .node-fault-dot{background:#dc2626;box-shadow:0 0 0 4px #fecaca}.node-ok{border-color:#16a34a!important;background:#f0fdf4!important;color:#166534!important}.node-description{line-height:1.55}.node-description b{color:#111827}.v40-node-image{width:100%;min-height:260px;display:flex;align-items:center;justify-content:center}.v40-node-image img{display:none;max-width:100%;max-height:430px;object-fit:contain;border-radius:10px}.v40-missing{min-height:260px;display:flex;align-items:center;justify-content:center;border:2px dashed #cbd5e1;border-radius:12px;background:#f8fafc;color:#475569;font-weight:700;text-align:center;padding:24px}.v40-start-tab{background:#ea580c!important;color:white!important;border-color:#ea580c!important}.bcu-canonical,.bcu-panel-real{aspect-ratio:1.75/1!important}.io-round{filter:drop-shadow(0 1px 1px #0004)}
-@media(max-width:700px){.node-faults{grid-template-columns:1fr}.v40-missing{min-height:180px}}
-.v40-carousel{position:relative;width:100%;min-height:260px;overflow:hidden;border-radius:12px;background:#e7edf3}.v40-track{display:flex;transition:transform .32s ease;touch-action:pan-y}.v40-slide{min-width:100%;display:flex;align-items:center;justify-content:center;min-height:260px}.v40-slide img{display:block;max-width:100%;max-height:430px;object-fit:contain}.v40-carousel button{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:42px;height:42px;border:0;border-radius:50%;background:#111827cc;color:#fff;font-size:25px}.v40-prev{left:12px}.v40-next{right:12px}.v40-dots{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);display:flex;gap:7px;padding:6px 9px;border-radius:999px;background:#11182799}.v40-dot{width:8px;height:8px;border-radius:50%;background:#ffffff80}.v40-dot.on{background:#fff;transform:scale(1.25)}.acu-panel-card .pn{width:min(100%,560px);height:auto;display:block;margin:auto}</style>
-<script id="v40-fixes">
-(function(){
- const FAULTS={
-  fan:[['fan','Обрив живлення двигуна','Вентилятор не запускається, флюгер не перемикається.'],['fan_block','Заклинювання крильчатки','Є команда пуску, але обертання і повітряного потоку немає.']],
-  vane:[['vane','Флюгер не замикається','Після запуску вентилятора автомат не отримує підтвердження потоку.'],['vane_stuck','Флюгер заклинив у замкненому стані','Контакт замкнений ще до запуску вентилятора.']],
-  gas:[['gas','Немає вхідного тиску газу','Датчик тиску не підтверджує мінімальний тиск pU.'],['gas_low','Низький вхідний тиск','Тиск падає нижче допустимого під час запуску.']],
-  reg:[['reg','Неправильне регулювання редуктора','Вихідний тиск не відповідає налаштуванню пальника.']],
-  cg:[['cg','Газові клапани V1/V2 не відкриваються','Газ не надходить до сопла після команди автомата.'],['cg_leak','Негерметичність газового блока','Контроль герметичності не проходить.']],
-  pg:[['pg','Неправильний тиск pG','Тиск на вимірювальному штуцері поза налаштованим діапазоном.']],
-  nozzle:[['nozzle','Сопло забруднене або перекрите','Газоповітряна суміш не формується належним чином.']],
-  ign:[['ign','Немає іскри','Високовольтний імпульс не доходить до електрода розпалу.'],['ign_gap','Неправильний зазор електрода','Іскра нестабільна або пробиває не в зоні розпалу.']],
-  trans:[['trans','Несправний запальний трансформатор','На високовольтному виході немає напруги.']],
-  ion:[['ion','Немає сигналу іонізації','Полум’я не підтверджується після відкриття газових клапанів.'],['ion_weak','Слабкий струм іонізації','Полум’я нестабільне або електрод забруднений.']],
-  chamber:[['flame_loss','Зрив полум’я','Під час роботи сигнал полум’я зникає.']],
-  stb:[['stb','Спрацював STB / несправний датчик температури','Ланцюг захисту від перегріву розімкнений або значення датчика некоректне.']],
-  ctrl:[['ctrl','Несправність автомата керування','Живлення є, але алгоритм запуску не виконується коректно.']],
-  fuse:[['f1','Перегорів запобіжник F1','Відсутнє живлення силового кола вентилятора.'],['f2','Перегорів запобіжник F2','Відсутнє живлення кола розпалу/газових клапанів.']],
-  bcc:[['bcc','BCC відсутня або несумісна','ACU не може завантажити параметри теплогенератора.']]
- };
- const esc40=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- window.toggleNodeFault40=function(node,key){
-  if(typeof act!=='undefined'&&act){ if(act.has(key)) act.delete(key); else act.add(key); }
-  if(typeof NODE_POWER39!=='undefined'&&NODE_POWER39){
-   const active=(FAULTS[node]||[]).some(f=>typeof act!=='undefined'&&act.has(f[0]));
-   if(active)NODE_POWER39.add(node);else NODE_POWER39.delete(node);
-  }
-  info(node); if(typeof fx==='function')fx();
- };
- window.clearNodeFaults40=function(node){
-  (FAULTS[node]||[]).forEach(f=>{if(typeof act!=='undefined'&&act)act.delete(f[0])});
-  if(typeof NODE_POWER39!=='undefined'&&NODE_POWER39)NODE_POWER39.delete(node);
-  info(node);if(typeof fx==='function')fx();
- };
- info=function(n){
-  if(typeof applyNodePower39==='function')applyNodePower39();if(typeof hl==='function')hl(n);
-  document.querySelectorAll('.nc').forEach(c=>c.classList.toggle('on',c.dataset.n==n));
-  const x=N[n]||[n,'Опис вузла відсутній.','Перевірити справність вузла.'], fs=FAULTS[n]||[[n,'Несправність вузла','Вузол не виконує свою функцію в алгоритмі запуску.']];
-  const active=fs.filter(f=>typeof act!=='undefined'&&act.has(f[0]));
-  const host=document.querySelector('#info');if(!host)return;
-  host.innerHTML=`<h3 style="margin-top:0">${esc40(x[0])}</h3><div class="node-description"><p><b>Призначення.</b> ${x[1]}</p><p><b>Штатний стан.</b> ${x[2]}</p><p class="mut"><b>Вплив на алгоритм.</b> Активована несправність одразу враховується симулятором як реальна відмова вузла та може зупинити запуск, сформувати код помилки або спричинити захисне вимкнення.</p></div><div class="node-faults">${fs.map(f=>{const on=typeof act!=='undefined'&&act.has(f[0]);return `<button type="button" class="node-fault ${on?'on':''}" onclick="toggleNodeFault40('${n}','${f[0]}')"><span class="node-fault-dot"></span><span><b>${esc40(f[1])}</b><small>${esc40(f[2])}</small></span></button>`}).join('')}<button type="button" class="node-fault node-ok ${active.length?'':'on'}" onclick="clearNodeFaults40('${n}')"><span class="node-fault-dot"></span><span><b>Вузол справний</b><small>Скинути всі примусові несправності цього вузла.</small></span></button></div>`;
- };
- function addStartTab(){
-  const h=document.querySelector('header span');if(!h||h.querySelector('[data-v="start40"]'))return;
-  const b=document.createElement('button');b.type='button';b.dataset.v='start40';b.className='v40-start-tab';b.textContent='Запуск';b.onclick=()=>{const native=document.querySelector('.v36-fab [data-a="sim"]');if(native)native.click();else if(typeof go==='function')go('stand')};h.appendChild(b);
- }
- function replaceSettingsVisual(){
-  if(typeof V!=='undefined'&&V==='settings'){
-   const item=(typeof SETS!=='undefined'&&SETS.find(q=>q.id===setTab))||{id:'image',n:'Вузол'};
-   document.querySelectorAll('.cfg39-visual').forEach(el=>{
-    if(el.dataset.carousel===item.id)return;el.dataset.carousel=item.id;
-    el.innerHTML=`<div class="v40-carousel"><div class="v40-track"></div><button type="button" class="v40-prev">‹</button><button type="button" class="v40-next">›</button><div class="v40-dots"></div><div class="v40-missing">Не вдалося завантажити зображення ${item.id}.png</div></div>`;
-    const car=el.firstElementChild,track=car.querySelector('.v40-track'),dots=car.querySelector('.v40-dots'),miss=car.querySelector('.v40-missing');let imgs=[],idx=0,dragX=0;const names=[`${item.id}.png`,...Array.from({length:20},(_,i)=>`${item.id}_${i+1}.png`)];
-    const show=()=>{track.style.transform=`translateX(-${idx*100}%)`;[...dots.children].forEach((d,i)=>d.classList.toggle('on',i===idx));car.querySelector('.v40-prev').hidden=car.querySelector('.v40-next').hidden=imgs.length<2;dots.hidden=imgs.length<2};
-    const build=()=>{track.innerHTML=imgs.map((x,i)=>`<div class="v40-slide"><img src="images/${x}" alt="${esc40(item.n)}, ${i+1}"></div>`).join('');dots.innerHTML=imgs.map((_,i)=>`<span class="v40-dot ${i===0?'on':''}"></span>`).join('');miss.style.display=imgs.length?'none':'flex';track.style.display=imgs.length?'flex':'none';show()};
-    let pending=names.length;names.forEach(name=>{const im=new Image();im.onload=()=>{imgs.push(name);imgs.sort((x,y)=>names.indexOf(x)-names.indexOf(y));build();pending--};im.onerror=()=>{if(!--pending&&!imgs.length)build()};im.src=`images/${name}`});
-    car.querySelector('.v40-prev').onclick=()=>{idx=(idx-1+imgs.length)%imgs.length;show()};car.querySelector('.v40-next').onclick=()=>{idx=(idx+1)%imgs.length;show()};dots.onclick=e=>{const n=[...dots.children].indexOf(e.target);if(n>=0){idx=n;show()}};track.onpointerdown=e=>dragX=e.clientX;track.onpointerup=e=>{const dx=e.clientX-dragX;if(Math.abs(dx)>45&&imgs.length>1){idx=(idx+(dx<0?1:-1)+imgs.length)%imgs.length;show()}};
-   })
-  }
- }
- window.mountNodeCarousel43=replaceSettingsVisual;
- const oldRender40=render;render=function(){oldRender40();addStartTab();replaceSettingsVisual()};
- if(typeof drawSet39==='function'){const oldDraw40=drawSet39;drawSet39=function(id){oldDraw40(id);replaceSettingsVisual()};drawSet26=drawSet39}
- // ACU green status is commanded by thermostat demand or manual heating, not by flame establishment.
- if(typeof acuMarkup==='function'){const oldAcu40=acuMarkup;acuMarkup=function(x,y,w,h,S0){const q=S0||st;let html=oldAcu40(x,y,w,h,S0);const demand=(Number(q.mode)===2)||((Number(q.mode)===1||Number(q.mode)===4)&&!!q.dem);if(!q.err&&demand)html=html.replace(/class="acu-status"([^>]*?)fill="#[0-9a-fA-F]+"/,'class="acu-status"$1fill="#25b85a"');return html}}
- // Correct indicator captions in every rendered ACU panel.
- const labels=['Авто обігрів','Обігрів','Вентиляція','Вентиляція + автообігрів'];
- function fixLabels(){document.querySelectorAll('.acu-canonical text,.pn text').forEach(t=>{const s=(t.textContent||'').trim();const map={'AUTO':'Авто обігрів','ручн. обігрів':'Обігрів','вентиляція':'Вентиляція','вент.+AUTO':'Вентиляція + автообігрів'};if(map[s])t.textContent=map[s]});addStartTab();replaceSettingsVisual()}
- pACU=function(id){const code=esc40(String(id||'0').trim()||'0');return `<div class="acu-panel-card"><svg viewBox="0 0 460 255" class="pn acu-real"><defs><linearGradient id="ab" y2="1"><stop stop-color="#41474d"/><stop offset="1" stop-color="#20252a"/></linearGradient><radialGradient id="bt"><stop stop-color="#747c84"/><stop offset="1" stop-color="#252a2f"/></radialGradient></defs><rect x="4" y="4" width="452" height="247" rx="22" fill="url(#ab)" stroke="#687078" stroke-width="5"/><text x="230" y="30" fill="#c2c7cc" font-size="17" text-anchor="middle" font-weight="700">ermaf ACU 121</text><path d="M44 46H416L391 224H69Z" fill="#090b0d" stroke="#70777e" stroke-width="3"/><rect x="82" y="70" width="126" height="84" rx="6" fill="#100807" stroke="#654640"/><text x="145" y="132" text-anchor="middle" font-family="monospace" font-size="54" font-weight="800" fill="#ff3b30">${code}</text><circle class="acu-status" cx="233" cy="84" r="11" fill="#d9a51c"/><text x="233" y="111" text-anchor="middle" fill="#ddd" font-size="11">СТАН</text>${['Авто обігрів','Обігрів','Вентиляція','Вентиляція + автообігрів'].map((t,i)=>`<circle cx="267" cy="${61+i*31}" r="7" fill="#555"/><text x="284" y="${65+i*31}" fill="#eee" font-size="11">${t}</text>`).join('')}${[['MODE',116],['RESET',222],['I/O',328]].map(([t,x])=>`<circle cx="${x}" cy="193" r="27" fill="url(#bt)" stroke="#8b949d" stroke-width="3"/><circle cx="${x}" cy="193" r="19" fill="#343a40"/><text x="${x}" y="198" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">${t}</text>`).join('')}</svg></div>`};
- new MutationObserver(fixLabels).observe(document.body,{childList:true,subtree:true});
- addStartTab();fixLabels();
- if('serviceWorker' in navigator && location.protocol!=='file:')navigator.serviceWorker.register('./service-worker.js').catch(()=>{});
-})();
-</script>
 
-</body></html>
+/* ===== v40: вкладка «Запуск», вади-фікси, карусель зображень, PWA ===== */
+(function(){
+const HOME_ACT=new Set(),NS='http://www.w3.org/2000/svg';
+const ALIAS={trans:'tr',fuse:'f1',reg:'rg'};
+const faultsFor=n=>{let l=sfa().filter(f=>f[2]==n);if(!l.length&&ALIAS[n])l=sfa().filter(f=>f[0]==ALIAS[n]);return l};
+const st40=document.createElement('style');st40.textContent=`
+.car40{margin:8px 0;border-radius:12px;overflow:hidden;background:var(--bg);border:1px solid var(--bd)}
+.car40-tr{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.car40-tr::-webkit-scrollbar{display:none}
+.car40-tr img{flex:0 0 100%;width:100%;max-height:260px;object-fit:contain;scroll-snap-align:center;background:#000}
+.car40-dots{display:flex;justify-content:center;gap:6px;padding:6px}.car40-dots i{width:7px;height:7px;border-radius:50%;background:var(--bd)}.car40-dots i.on{background:var(--ac)}
+.car40-miss{padding:26px 12px;text-align:center;color:var(--mut);font-size:13px}
+.v36-fab [data-a=sim]{display:none!important}
+#launchHost .v36-box{position:static!important;inset:auto!important;transform:none!important;width:auto!important;max-width:none!important;max-height:none!important;box-shadow:none!important;margin:0!important}
+#launchHost .v36-x{display:none!important}`;document.head.appendChild(st40);
+const EXT=['png','jpg','jpeg','webp'];
+const probe=async n=>{for(const e of EXT){const u=`images/${n}.${e}`;if(await new Promise(r=>{const i=new Image();i.onload=()=>r(1);i.onerror=()=>r(0);i.src=u}))return u}return null};
+async function loadCar(id,key){const h=document.getElementById(id);if(!h)return;const urls=[];let miss=0;
+for(let i=0;i<12&&miss<2;i++){const u=await probe(i?key+i:key);if(u){urls.push(u);miss=0}else miss++}
+if(!urls.length){h.innerHTML=`<div class="car40-miss">Не вдалося завантажити зображення ${key}.png</div>`;return}
+h.innerHTML=`<div class="car40-tr">${urls.map(u=>`<img src="${u}" alt="${key}">`).join('')}</div>`+(urls.length>1?`<div class="car40-dots">${urls.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join('')}</div>`:'');
+const tr=h.querySelector('.car40-tr');tr.onscroll=()=>{const k=Math.round(tr.scrollLeft/tr.clientWidth);h.querySelectorAll('.car40-dots i').forEach((d,j)=>d.classList.toggle('on',j==k))}}
+const carousel=k=>{const id='cr'+Math.random().toString(36).slice(2,8);setTimeout(()=>loadCar(id,k),0);return `<div class="car40" id="${id}"><div class="car40-miss">…</div></div>`};
+nodeVisual27=id=>carousel(id);
+/* розширений опис вузла + можливі несправності замість «Вимкнути» */
+const _info=info;
+info=function(n){_info(n);const box=$('#info');if(!box)return;const d=NODE_DOC[n],x=N[n]||(d&&[d[0],d[1],d[2]]);if(!x)return;
+const fl=faultsFor(n);
+box.innerHTML=`<h3 style="margin-top:0">${x[0]}</h3>${carousel(n)}<p>${x[1]}</p>${d?`<p><b>Призначення:</b> ${d[1]}</p><p><b>Як перевірити:</b> ${d[2]}</p>`:''}<p class="mut"><b>Норма:</b> ${x[2]}</p><h4 style="margin:10px 0 4px">Можливі несправності</h4><div class="chips">${fl.map(f=>`<button type="button" class="chip ${HOME_ACT.has(f[0])?'on':''}" onclick="toggleFault40('${f[0]}','${n}')">${f[1]} <small>(${M=='ACU'?f[4]:f[5]})</small></button>`).join('')||'<span class="mut">Для цього вузла несправності не змодельовані.</span>'}</div><p class="mut" style="margin-top:8px">Обрана несправність діє в симуляторі: система поводиться так, ніби вузол несправний.</p>`};
+window.toggleFault40=(id,n)=>{if(HOME_ACT.has(id)){HOME_ACT.delete(id);act.delete(id)}else{HOME_ACT.add(id);act.add(id)}
+NODE_POWER39.clear();HOME_ACT.forEach(i=>{const f=SF.find(q=>q[0]==i);if(f)NODE_POWER39.add(f[2])});info(n)};
+/* MODE / RESET(BCU) — у будь-який момент */
+const _btn=btn;
+btn=function(k){if(!st)return _btn(k);const bcu=M!='ACU';
+if(k=='mode'||(bcu&&k=='reset')){
+ if(st.err){if(bcu)return _btn('reset');cm();pnl();slog();return}
+ if(['start','select','purge'].includes(st.state)){cm();tk++;st.burn=false;st.state='off';st.stage=-1;st.log.push('MODE: режим змінено, запуск виконується заново.');start();return}
+ return _btn('mode')}
+return _btn(k)};
+/* ACU: індикатори й зелена кнопка */
+const _psc=panelStateColor;
+panelStateColor=function(){if(st.err)return '#df2f35';if(M!='ACU')return _psc();const heat=st.mode==2||((st.mode==1||st.mode==4)&&st.dem);return(st.state!='off'&&heat)?'#25b85a':'#d9a51c'};
+function acuLeds(){const on=st&&st.state&&st.state!=='off',idx=on?st.mode-1:-1,col=panelStateColor(),L=['AUTO♨','♨','◉','◉+AUTO'];
+document.querySelectorAll('.acu-canonical').forEach(g=>{[...g.querySelectorAll('circle')].slice(0,4).forEach((e,i)=>e.setAttribute('fill',i==idx?'#ffae1a':'#4b4b4b'));
+const s=g.querySelector('.acu-status');if(s)s.setAttribute('fill',col);
+[...g.querySelectorAll('text')].filter(t=>/^(AUTO)?[♨◉]/.test(t.textContent)).slice(0,4).forEach((t,i)=>{t.textContent=L[i];t.setAttribute('font-size','5.5')})})}
+setInterval(()=>{if(document.querySelector('.acu-canonical'))acuLeds()},250);
+/* кнопка ON/OFF — намальована, а не символом */
+function fixPower(){document.querySelectorAll('svg text').forEach(t=>{if(t.textContent.trim()!=='⏻')return;const x=+t.getAttribute('x'),y=+t.getAttribute('y')-5,g=document.createElementNS(NS,'g');g.style.pointerEvents='none';
+g.innerHTML=`<path d="M${x-4.7} ${y-4.7}A6.6 6.6 0 1 0 ${x+4.7} ${y-4.7}" fill="none" stroke="#111" stroke-width="1.9" stroke-linecap="round"/><path d="M${x} ${y-8.5}V${y-1}" stroke="#111" stroke-width="1.9" stroke-linecap="round"/>`;t.replaceWith(g)})}
+let q=0;new MutationObserver(()=>{if(q)return;q=requestAnimationFrame(()=>{q=0;fixPower()})}).observe(document.body,{childList:true,subtree:true});
+/* вкладка «Запуск» замість вікна */
+V26NAV.launch=['⏱','Запуск'];
+let lov=null,lastV='';
+const _r=render;
+render=function(){if(lov){lov._close&&lov._close();lov.remove();lov=null}
+if(V!=='launch'){_r();if(V==='stand'&&lastV!=='stand'){HOME_ACT.forEach(i=>act.add(i));typeof chips=='function'&&chips()}lastV=V;return}
+V='home';try{_r()}catch(e){}V='launch';lastV=V;
+$('#app').innerHTML='<div id="launchHost"></div>';window.openRealtimeSim36();
+const all=document.querySelectorAll('.v36-ov');lov=all[all.length-1];lov.style.display='none';$('#launchHost').appendChild(lov.querySelector('.v36-box'));
+headV26();document.querySelectorAll('header [data-v]').forEach(b=>b.classList.toggle('on',b.dataset.v==='launch'))};
+})();
+if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+</script></body></html>
