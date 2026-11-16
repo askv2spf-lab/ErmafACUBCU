@@ -62,11 +62,11 @@ h2{font-size:18px}h3{font-size:16px}
 .grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}.tgrid{grid-template-columns:1fr}
 .chip{min-height:38px}.st{padding:10px}
 }
-</style><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#ea580c"><link rel="icon" href="icons/icon.svg">
+</style><link rel="manifest" href="manifest.webmanifest?v=43"><meta name="theme-color" content="#ea580c"><link rel="icon" href="icons/icon.svg?v=43">
 </head><body>
 <header><b>🔥 Діагностика GP 70 / GP 95</b>
 
-<span><button data-v="home" onclick="go('home')">Головне меню</button> <button data-v="faults" onclick="go('faults')">Помилки</button> <button data-v="algo" onclick="go('algo')">Алгоритм запуску</button> </span></header>
+<span><button data-v="home" onclick="go('home')">Головне меню</button> <button data-v="faults" onclick="go('faults')">Помилки</button> <button data-v="algo" onclick="go('algo')">Алгоритм запуску</button> </span><span style="font-size:11px;opacity:.65;margin-left:auto">build v43</span></header>
 <main id="app"></main>
 <script>
 const $=s=>document.querySelector(s);
@@ -2087,6 +2087,7 @@ syncFuses39();
    })
   }
  }
+ window.mountNodeCarousel43=replaceSettingsVisual;
  const oldRender40=render;render=function(){oldRender40();addStartTab();replaceSettingsVisual()};
  if(typeof drawSet39==='function'){const oldDraw40=drawSet39;drawSet39=function(id){oldDraw40(id);replaceSettingsVisual()};drawSet26=drawSet39}
  // ACU green status is commanded by thermostat demand or manual heating, not by flame establishment.
@@ -2094,7 +2095,7 @@ syncFuses39();
  // Correct indicator captions in every rendered ACU panel.
  const labels=['Авто обігрів','Обігрів','Вентиляція','Вентиляція + автообігрів'];
  function fixLabels(){document.querySelectorAll('.acu-canonical text,.pn text').forEach(t=>{const s=(t.textContent||'').trim();const map={'AUTO':'Авто обігрів','ручн. обігрів':'Обігрів','вентиляція':'Вентиляція','вент.+AUTO':'Вентиляція + автообігрів'};if(map[s])t.textContent=map[s]});addStartTab();replaceSettingsVisual()}
- window.pACU=function(id){const code=esc40(String(id||'0').trim()||'0');return `<div class="acu-panel-card"><svg viewBox="0 0 460 255" class="pn acu-real"><defs><linearGradient id="ab" y2="1"><stop stop-color="#41474d"/><stop offset="1" stop-color="#20252a"/></linearGradient><radialGradient id="bt"><stop stop-color="#747c84"/><stop offset="1" stop-color="#252a2f"/></radialGradient></defs><rect x="4" y="4" width="452" height="247" rx="22" fill="url(#ab)" stroke="#687078" stroke-width="5"/><text x="230" y="30" fill="#c2c7cc" font-size="17" text-anchor="middle" font-weight="700">ermaf ACU 121</text><path d="M44 46H416L391 224H69Z" fill="#090b0d" stroke="#70777e" stroke-width="3"/><rect x="82" y="70" width="126" height="84" rx="6" fill="#100807" stroke="#654640"/><text x="145" y="132" text-anchor="middle" font-family="monospace" font-size="54" font-weight="800" fill="#ff3b30">${code}</text><circle class="acu-status" cx="233" cy="84" r="11" fill="#d9a51c"/><text x="233" y="111" text-anchor="middle" fill="#ddd" font-size="11">СТАН</text>${['Авто обігрів','Обігрів','Вентиляція','Вентиляція + автообігрів'].map((t,i)=>`<circle cx="267" cy="${61+i*31}" r="7" fill="#555"/><text x="284" y="${65+i*31}" fill="#eee" font-size="11">${t}</text>`).join('')}${[['MODE',116],['RESET',222],['I/O',328]].map(([t,x])=>`<circle cx="${x}" cy="193" r="27" fill="url(#bt)" stroke="#8b949d" stroke-width="3"/><circle cx="${x}" cy="193" r="19" fill="#343a40"/><text x="${x}" y="198" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">${t}</text>`).join('')}</svg></div>`};
+ pACU=function(id){const code=esc40(String(id||'0').trim()||'0');return `<div class="acu-panel-card"><svg viewBox="0 0 460 255" class="pn acu-real"><defs><linearGradient id="ab" y2="1"><stop stop-color="#41474d"/><stop offset="1" stop-color="#20252a"/></linearGradient><radialGradient id="bt"><stop stop-color="#747c84"/><stop offset="1" stop-color="#252a2f"/></radialGradient></defs><rect x="4" y="4" width="452" height="247" rx="22" fill="url(#ab)" stroke="#687078" stroke-width="5"/><text x="230" y="30" fill="#c2c7cc" font-size="17" text-anchor="middle" font-weight="700">ermaf ACU 121</text><path d="M44 46H416L391 224H69Z" fill="#090b0d" stroke="#70777e" stroke-width="3"/><rect x="82" y="70" width="126" height="84" rx="6" fill="#100807" stroke="#654640"/><text x="145" y="132" text-anchor="middle" font-family="monospace" font-size="54" font-weight="800" fill="#ff3b30">${code}</text><circle class="acu-status" cx="233" cy="84" r="11" fill="#d9a51c"/><text x="233" y="111" text-anchor="middle" fill="#ddd" font-size="11">СТАН</text>${['Авто обігрів','Обігрів','Вентиляція','Вентиляція + автообігрів'].map((t,i)=>`<circle cx="267" cy="${61+i*31}" r="7" fill="#555"/><text x="284" y="${65+i*31}" fill="#eee" font-size="11">${t}</text>`).join('')}${[['MODE',116],['RESET',222],['I/O',328]].map(([t,x])=>`<circle cx="${x}" cy="193" r="27" fill="url(#bt)" stroke="#8b949d" stroke-width="3"/><circle cx="${x}" cy="193" r="19" fill="#343a40"/><text x="${x}" y="198" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">${t}</text>`).join('')}</svg></div>`};
  new MutationObserver(fixLabels).observe(document.body,{childList:true,subtree:true});
  addStartTab();fixLabels();
  if('serviceWorker' in navigator && location.protocol!=='file:')navigator.serviceWorker.register('./service-worker.js').catch(()=>{});
