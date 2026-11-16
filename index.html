@@ -3,6 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Діагностика GP 70 / GP 95</title>
 <link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><meta name="theme-color" content="#e8590c"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Heater">
+<script>window.__EDITS__={};</script>
 <style>
 :root{--bg:#f4f5f7;--fg:#1c2127;--card:#fff;--bd:#d5d9de;--mut:#5d6672;--ac:#e8590c;--err:#e03131;--ok:#2f9e44;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14171a;--fg:#e6e9ec;--card:#1e2328;--bd:#343b43;--mut:#9aa4af;color-scheme:dark}}
@@ -2035,7 +2036,7 @@ const st40=document.createElement('style');st40.textContent=`
 .car40-miss{padding:26px 12px;text-align:center;color:var(--mut);font-size:13px}
 .v36-fab [data-a=sim]{display:none!important}
 #launchHost .v36-box{position:static!important;inset:auto!important;transform:none!important;width:auto!important;max-width:none!important;max-height:none!important;box-shadow:none!important;margin:0!important}
-#launchHost .v36-x{display:none!important}`;document.head.appendChild(st40);
+#launchHost .v36-x{display:none!important}.v36-ov.inline40{position:static!important;inset:auto!important;background:none!important;display:block!important;padding:0!important;overflow:visible!important;backdrop-filter:none!important}`;document.head.appendChild(st40);
 const EXT=['png','jpg','jpeg','webp'];
 const probe=async n=>{for(const e of EXT){const u=`images/${n}.${e}`;if(await new Promise(r=>{const i=new Image();i.onload=()=>r(1);i.onerror=()=>r(0);i.src=u}))return u}return null};
 async function loadCar(id,key){const h=document.getElementById(id);if(!h)return;const urls=[];let miss=0;
@@ -2074,14 +2075,43 @@ g.innerHTML=`<path d="M${x-4.7} ${y-4.7}A6.6 6.6 0 1 0 ${x+4.7} ${y-4.7}" fill="
 let q=0;new MutationObserver(()=>{if(q)return;q=requestAnimationFrame(()=>{q=0;fixPower()})}).observe(document.body,{childList:true,subtree:true});
 /* вкладка «Запуск» замість вікна */
 V26NAV.launch=['⏱','Запуск'];
-let lov=null,lastV='';
+let lov=null,lastV='',busy=0;
 const _r=render;
 render=function(){if(lov){lov._close&&lov._close();lov.remove();lov=null}
 if(V!=='launch'){_r();if(V==='stand'&&lastV!=='stand'){HOME_ACT.forEach(i=>act.add(i));typeof chips=='function'&&chips()}lastV=V;return}
-V='home';try{_r()}catch(e){}V='launch';lastV=V;
+if(busy)return;busy=1;setTimeout(()=>busy=0,0);V='home';try{_r()}catch(e){}V='launch';lastV=V;
 $('#app').innerHTML='<div id="launchHost"></div>';window.openRealtimeSim36();
-const all=document.querySelectorAll('.v36-ov');lov=all[all.length-1];lov.style.display='none';$('#launchHost').appendChild(lov.querySelector('.v36-box'));
+const all=document.querySelectorAll('.v36-ov');lov=all[all.length-1];lov.classList.add('inline40');$('#launchHost').appendChild(lov);
 headV26();document.querySelectorAll('header [data-v]').forEach(b=>b.classList.toggle('on',b.dataset.v==='launch'))};
+})();
+
+/* ===== v40b: виправлення «Запуск», редагування тексту, пропорції BCU ===== */
+(function(){
+window.__EDITS__=window.__EDITS__||{};
+const LS='gp70_edits',LM='gp70_editmode';
+let EDITS=Object.assign({},window.__EDITS__);try{Object.assign(EDITS,JSON.parse(localStorage.getItem(LS)||'{}'))}catch(e){}
+const ORIG=new WeakMap();let editing=false;
+const roots=()=>[document.querySelector('header'),document.querySelector('#app')].filter(Boolean);
+function walk(fn){roots().forEach(r=>{const w=document.createTreeWalker(r,NodeFilter.SHOW_TEXT);let n;const a=[];while(n=w.nextNode())a.push(n);a.forEach(fn)})}
+function applyEdits(){if(editing)return;walk(n=>{const v=n.nodeValue,k=ORIG.has(n)?ORIG.get(n):v;if(EDITS[k]!==undefined&&v!==EDITS[k]){n.nodeValue=EDITS[k];ORIG.set(n,k)}else if(!ORIG.has(n))ORIG.set(n,v)})}
+function tag(){walk(n=>{if(!ORIG.has(n))ORIG.set(n,n.nodeValue)})}
+function save(){try{localStorage.setItem(LS,JSON.stringify(EDITS))}catch(e){}}
+document.addEventListener('input',e=>{if(!editing)return;const n=getSelection().anchorNode;if(!n||n.nodeType!=3)return;const o=ORIG.get(n);if(o===undefined)return;if(n.nodeValue===o)delete EDITS[o];else EDITS[o]=n.nodeValue;save()});
+function setEdit(on){editing=on;localStorage.setItem(LM,on?'1':'');if(on)tag();roots().forEach(r=>r.contentEditable=on?'true':'false');document.body.classList.toggle('editmode',on);if(!on)applyEdits()}
+const es=document.createElement('style');es.textContent='.editmode #app,.editmode header{outline:2px dashed #e8590c;outline-offset:-2px}.editmode::before{content:"✏️ Режим редагування тексту — змініть будь-який текст у меню; зберігається автоматично";position:fixed;bottom:0;left:0;right:0;z-index:99;background:#e8590c;color:#fff;font:600 13px system-ui;padding:6px 10px;text-align:center}.set40{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:12px}.set40>div{background:var(--card);color:var(--fg);border-radius:14px;padding:16px;max-width:420px;width:100%}.set40 button{display:block;width:100%;margin:6px 0}';document.head.appendChild(es);
+async function dl(){let src;try{src=await (await fetch(location.pathname.endsWith('/')?'index.html':location.pathname,{cache:'no-store'})).text()}catch(e){alert('Завантаження HTML працює при відкритті через GitHub Pages/сервер, не з file://');return}
+const js=JSON.stringify(EDITS).replace(/</g,'\\u003c');src=src.replace(/window\.__EDITS__=window\.__EDITS__\|\|\{\};/,()=>'window.__EDITS__='+js+';');
+const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([src],{type:'text/html'}));a.download='index.html';a.click()}
+function openSet(){const o=document.createElement('div');o.className='set40';o.innerHTML=`<div><h3 style="margin-top:0">⚙️ Налаштування</h3><label><input type="checkbox" id="ed40" ${editing?'checked':''}> Режим повного редагування тексту</label><p class="mut">Змінені тексти (${Object.keys(EDITS).length}) зберігаються у пам'яті браузера й діють у всіх меню.</p><button id="sv40">💾 Зберегти в кеш браузера</button><button id="dl40" class="pr">⬇️ Завантажити HTML зі змінами</button><button id="rs40">↺ Скинути всі правки</button><button id="cl40">Закрити</button></div>`;
+document.body.appendChild(o);const q=s=>o.querySelector(s);q('#ed40').onchange=e=>setEdit(e.target.checked);q('#sv40').onclick=()=>{save();alert('Збережено в кеш браузера')};q('#dl40').onclick=dl;q('#rs40').onclick=()=>{if(confirm('Скинути всі правки?')){EDITS={};save();location.reload()}};q('#cl40').onclick=()=>o.remove();o.onclick=e=>{if(e.target===o)o.remove()}}
+const b=document.querySelector('header b');if(b&&b.firstChild){const t=b.firstChild.nodeValue,i=t.indexOf('🔥');if(i>=0){b.firstChild.nodeValue=t.slice(i+2);const s=document.createElement('span');s.textContent='🔥';s.style.cursor='pointer';s.title='Налаштування';s.onclick=e=>{e.stopPropagation();openSet()};b.insertBefore(s,b.firstChild)}}
+new MutationObserver(()=>{if(!editing)requestAnimationFrame(applyEdits)}).observe(document.body,{childList:true,subtree:true});
+const _bm=bcuMarkup;bcuMarkup=function(x,y,w,h){return _bm(x+w*.09,y,w*.82,h)};
+/* несправності з головної → нова симуляція (Запуск) */
+const _rl=render;
+render=function(){_rl();if(V==='launch'){const host=document.querySelector('#launchHost');if(host){const seen=new Set();NODE_POWER39.forEach(n=>{if(seen.has(n))return;seen.add(n);const g=host.querySelector('.n[data-n="'+n+'"]');g&&g.dispatchEvent(new MouseEvent('click',{bubbles:true}))})}}};
+if(localStorage.getItem(LM))setEdit(true);else applyEdits();
+try{render()}catch(e){console.error(e)}
 })();
 if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 </script></body></html>
