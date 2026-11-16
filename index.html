@@ -64,7 +64,13 @@ h2{font-size:18px}h3{font-size:16px}
 .grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}.tgrid{grid-template-columns:1fr}
 .chip{min-height:38px}.st{padding:10px}
 }
-</style></head><body>
+</style>
+<style id="user-v41-fixes">
+header{min-height:0!important;height:auto!important;max-width:none!important;padding:8px 12px!important;display:flex!important;align-items:center!important;gap:8px!important;flex-wrap:wrap!important}
+header>b{width:auto!important;margin-right:auto!important;white-space:nowrap!important}header>span{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:5px!important;flex:0 1 auto!important}.v36-fab{right:14px!important;bottom:14px!important}.algo-card-v41{display:grid;grid-template-columns:220px minmax(0,1fr);gap:14px;align-items:stretch;margin:10px 0}.algo-media-v41{min-height:150px;border-radius:10px;background:#eef2f6;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}.algo-media-v41 img{width:100%;height:100%;max-height:220px;object-fit:contain;display:block}.algo-missing-v41{padding:18px;text-align:center;color:#667085;font-weight:700}.algo-text-v41{padding:2px 4px}.pn.acu-v41{max-width:520px!important}.launch-panel .pn{max-width:520px!important}
+@media(max-width:700px){header>b{width:100%!important}.algo-card-v41{grid-template-columns:1fr}.algo-media-v41{min-height:180px}}
+</style>
+</head><body>
 <header><b>🔥 Діагностика GP 70 / GP 95</b>
 
 <span><button data-v="home" onclick="go('home')">Головне меню</button> <button data-v="faults" onclick="go('faults')">Помилки</button> <button data-v="algo" onclick="go('algo')">Алгоритм запуску</button> </span></header>
@@ -2112,6 +2118,19 @@ const _rl=render;
 render=function(){_rl();if(V==='launch'){const host=document.querySelector('#launchHost');if(host){const seen=new Set();NODE_POWER39.forEach(n=>{if(seen.has(n))return;seen.add(n);const g=host.querySelector('.n[data-n="'+n+'"]');g&&g.dispatchEvent(new MouseEvent('click',{bubbles:true}))})}}};
 if(localStorage.getItem(LM))setEdit(true);else applyEdits();
 try{render()}catch(e){console.error(e)}
+})();
+
+/* user-v41-runtime */
+(function(){
+ const esc=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const stageImages=['power.png','ctrl.png','stb.png','vane.png','pg.png','fan.png','ign.png','ion.png','cg.png'];
+ function stageMedia(i){const f=stageImages[i]||`stage_${i+1}.png`;return `<div class="algo-media-v41"><img src="images/${f}" alt="Зображення етапу ${i+1}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="algo-missing-v41" style="display:none">Не вдалося завантажити зображення ${f}</div></div>`}
+ rAlgo=function(){const ac=M==='ACU';document.querySelector('#app').innerHTML=`<h2>Алгоритм запуску (${ac?'ACU':'BCU'})</h2><p class="mut">Етапи від увімкнення до вимкнення: що відбувається, що перевіряється і яка помилка виникає при негативному результаті.</p>`+ST.map((x,i)=>`<div class="card algo-card-v41">${stageMedia(i)}<div class="algo-text-v41"><b>${i+1}. ${x[0]}</b><p>${x[1]}</p><p class="mut">Перевіряється: ${x[2]}</p><p><b>Якщо не пройдено →</b> ${x[ac?3:4]}</p></div></div>`).join('')};
+ acuMarkup=function(x=0,y=0,w=460,h=255,S0){const q=S0||st||{},err=String(q.err||''),mode=Number(q.mode||1),status=!err&&(['select','start','wait','purge','run'].includes(q.state)||q.dem);const sc=Math.min(w/460,h/255),tx=x+(w-460*sc)/2,ty=y+(h-255*sc)/2;return `<g transform="translate(${tx} ${ty}) scale(${sc})" class="acu-v41 panel-action"><defs><linearGradient id="acuCase41" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#4b5157"/><stop offset="1" stop-color="#252a2f"/></linearGradient><radialGradient id="acuBtn41"><stop stop-color="#79828a"/><stop offset="1" stop-color="#24292e"/></radialGradient></defs><rect x="4" y="4" width="452" height="247" rx="22" fill="url(#acuCase41)" stroke="#737b83" stroke-width="5"/><text x="230" y="31" text-anchor="middle" fill="#c8cdd2" font-size="17" font-weight="700">ermaf ACU 121</text><path d="M43 47H417L393 225H67Z" fill="#080a0c" stroke="#7b8289" stroke-width="3"/><rect x="82" y="71" width="126" height="83" rx="5" fill="#100706" stroke="#65433f"/><text x="145" y="132" text-anchor="middle" font-family="monospace" font-size="52" font-weight="800" fill="#ff3b30">${esc(err||'0')}</text><circle class="acu-status" cx="233" cy="84" r="11" fill="${status?'#25b85a':'#d7a51c'}"/><text x="233" y="110" text-anchor="middle" fill="#d9dde0" font-size="11">СТАН</text>${['Авто обігрів','Обігрів','Вентиляція','Вентиляція + автообігрів'].map((t,i)=>`<circle cx="268" cy="${61+i*31}" r="7" fill="${mode===i+1?'#ffad22':'#4b5157'}"/><text x="285" y="${65+i*31}" fill="#eceff1" font-size="11">${t}</text>`).join('')}${[['MODE',116],['RESET',222],['ON/OFF',328]].map(([t,c],i)=>`<circle cx="${c}" cy="193" r="27" fill="url(#acuBtn41)" stroke="#8d969e" stroke-width="3"/><circle cx="${c}" cy="193" r="19" fill="${i===1?'#b82f3b':'#343a40'}"/><text x="${c}" y="198" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">${t}</text>`).join('')}</g>`};
+ pACU=id=>`<svg viewBox="0 0 460 255" class="pn acu-v41">${acuMarkup(0,0,460,255,{state:'err',err:String(id),mode:1})}</svg>`;
+ panelOnlyMarkup=function(){const a=M==='ACU';return `<svg viewBox="0 0 ${a?460:230} ${a?255:185}" style="width:100%;max-width:${a?560:300}px;display:block;margin:auto">${a?acuMarkup(0,0,460,255):bcuMarkup(0,0,230,185)}</svg>`};
+ const oldRender=render;render=function(){oldRender();document.querySelectorAll('header').forEach(h=>{h.style.minHeight='0';h.style.height='auto'})};
+ try{render()}catch(e){console.error('v41 render',e)}
 })();
 if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 </script></body></html>
