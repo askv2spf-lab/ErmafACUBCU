@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Діагностика GP 70 / GP 95</title>
 <link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><meta name="theme-color" content="#e8590c"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Heater">
-<script>window.__EDITS__={};</script>
+<script>window.__EDITS__=/*A*/{}/*B*/;window.__CUSTOM__=/*C*/null/*E*/;</script>
 <style>
 :root{--bg:#f4f5f7;--fg:#1c2127;--card:#fff;--bd:#d5d9de;--mut:#5d6672;--ac:#e8590c;--err:#e03131;--ok:#2f9e44;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14171a;--fg:#e6e9ec;--card:#1e2328;--bd:#343b43;--mut:#9aa4af;color-scheme:dark}}
@@ -64,13 +64,7 @@ h2{font-size:18px}h3{font-size:16px}
 .grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))}.tgrid{grid-template-columns:1fr}
 .chip{min-height:38px}.st{padding:10px}
 }
-</style>
-<style id="user-v41-fixes">
-header{min-height:0!important;height:auto!important;max-width:none!important;padding:8px 12px!important;display:flex!important;align-items:center!important;gap:8px!important;flex-wrap:wrap!important}
-header>b{width:auto!important;margin-right:auto!important;white-space:nowrap!important}header>span{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:5px!important;flex:0 1 auto!important}.v36-fab{right:14px!important;bottom:14px!important}.algo-card-v41{display:grid;grid-template-columns:220px minmax(0,1fr);gap:14px;align-items:stretch;margin:10px 0}.algo-media-v41{min-height:150px;border-radius:10px;background:#eef2f6;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}.algo-media-v41 img{width:100%;height:100%;max-height:220px;object-fit:contain;display:block}.algo-missing-v41{padding:18px;text-align:center;color:#667085;font-weight:700}.algo-text-v41{padding:2px 4px}.pn.acu-v41{max-width:520px!important}.launch-panel .pn{max-width:520px!important}
-@media(max-width:700px){header>b{width:100%!important}.algo-card-v41{grid-template-columns:1fr}.algo-media-v41{min-height:180px}}
-</style>
-</head><body>
+</style></head><body>
 <header><b>🔥 Діагностика GP 70 / GP 95</b>
 
 <span><button data-v="home" onclick="go('home')">Головне меню</button> <button data-v="faults" onclick="go('faults')">Помилки</button> <button data-v="algo" onclick="go('algo')">Алгоритм запуску</button> </span></header>
@@ -88,7 +82,7 @@ ign:['Електрод розпалу і трансформатор','Іскра
 ion:['Іонізаційний електрод','Контроль полум’я. Жовто-зелений провід заземлення пальника має бути міцним і без корозії.','Електрод чистий, фарфор без тріщин, заземлення міцне.'],
 chamber:['Камера згоряння','Нержавіюча сталь. Полум’я блакитне й не виходить за межі приладу.','Полум’я блакитне й стабільне.'],
 stb:['STB і датчик температури','Запобіжний обмежувач температури та NTC-датчик (штекер X22 для ACU). Спрацьовують при перегріві.','Датчик і контакти в нормі, перегріву немає.'],
-ctrl:['Автомат керування','Веде послідовність: вентилятор, флюгер, іскра, клапани, іонізація. Живлення 230 В, 50 Гц постійно.','Живлення є, роз’єми вставлені, індикація працює.'],
+ctrl:['Панель керування','Веде послідовність: вентилятор, флюгер, іскра, клапани, іонізація. Живлення 230 В, 50 Гц постійно.','Живлення є, роз’єми вставлені, індикація працює.'],
 fuse:['Запобіжники','F1 — 8 А (вентилятор), F2 — 3,15 А інерційний (низьковольтні кола).','Запобіжники цілі.'],
 bcc:['Смарт-картка BCC (лише ACU)','Зберігає параметри. Без картки обігрівач не працює; вона має відповідати типу обігрівача й газу.','Картка вставлена, відповідає обігрівачу.']};
 const F=(id,t,s)=>({id,t,s});
@@ -1156,7 +1150,7 @@ function headV26(){const h=document.querySelector('header'),title=h&&h.querySele
 
 const SPEC={ACU:[
 ['Застосування','Обігрівач із прямим відкритим згорянням для тваринницьких ферм і теплиць (GP 70 ACU, інструкція ed. 06.20)'],
-['Автомат керування','ACU 121 зі смарт-карткою BCC; пряме електронне запалювання та іонізаційний контроль полум’я'],
+['Панель керування','ACU 121 зі смарт-карткою BCC; пряме електронне запалювання та іонізаційний контроль полум’я'],
 ['Потужність і струмінь','70 кВт; дальність 50 м; швидкість на кінці струменя 0,5 м/с'],
 ['Категорія та види газу','II2ELL3B/P: природний газ H (G20) 20 мбар і L (G25) 25 мбар (кат. 2); зріджений газ 35–50 мбар (кат. 3): пропан, пропан/бутан, бутан'],
 ['Клас NOx','до 5-го класу залежно від виду газу'],
@@ -1181,7 +1175,7 @@ const SPEC={ACU:[
 ['Приладдя','Термостат TH 215 N50260145; редуктор RECA 1,5 бар → 50 мбар N52600023; комплект для природного газу N52600072; комплект для пропану N52600025; шланг DVGW N52990209']
 ],BCU:[
 ['Застосування','Обігрівач GP 70 з автоматом BCU 300 (інструкція ed. 08.16); для GP 95 звіряйтеся з паспортною табличкою'],
-['Автомат керування','BCU 300 (Kromschröder), корпус IP 54; кнопки ON/OFF і MODE (RESET), 5 світлодіодів, червона лампа несправності'],
+['Панель керування','BCU 300 (Kromschröder), корпус IP 54; кнопки ON/OFF і MODE (RESET), 5 світлодіодів, червона лампа несправності'],
 ['Потужність і струмінь','70 кВт; дальність 50 м'],
 ['Вхідний тиск pU','Природний газ 20–25 мбар; пропан 35–50 мбар'],
 ['Реле тиску газу pW','Природний газ 10 мбар; пропан 30 мбар'],
@@ -1574,9 +1568,9 @@ const RT_FT=[
  ['leak','Клапан CG підтікає після вимкнення','cg',1,'stop','F4','13'],
  ['a9','Датчик тиску не відпускає після зупинки вентилятора','cg',2,'stop','A9',null]
 ].map(r=>({id:r[0],l:r[1],n:r[2],c:r[3],at:r[4],a:r[5],b:r[6],rt:r[7]||null,ra:r[8]||null,rb:r[9]||null,dl:r[10]||0}));
-const RT_FTM=Object.fromEntries(RT_FT.map(f=>[f.id,f]));
+const RT_FTM=Object.fromEntries(RT_FT.map(f=>[f.id,f]));window.RT40={FT:RT_FT,FTM:RT_FTM,CARDS:null,ST:RT_ST};
 const RC=(t,chk,fix)=>({t,chk,fix});
-const RT_CARDS={
+const RT_CARDS=window.RT40.CARDS={
  vane:[RC('Брудна лопать флюгера — не замикається','Лопать не піднімається потоком, бруд на осі, клацання немає.','Очистити флюгер, вісь і решітку ганчіркою/повітрям (флюгер не згинати), перевірити клацання контакту.'),
   RC('Брудна лопать флюгера — залипла замкненою','Без потоку контакт замкнений, лопать не повертається у вихідне положення.','Очистити лопать і вісь, перевірити вільний хід і розмикання контакту без потоку.'),
   RC('Мікроперемикач флюгера: контакт обгорів (не замикається)','Лопать рухається, клацання є, але контакт не замикається (перевірити мультиметром).','Замінити флюгерний вимикач у зборі (ACU N70300101 / BCU N50260144).'),
@@ -1623,28 +1617,32 @@ function rtFlame(ion,on){
  let g='<rect x="0" y="28" width="18" height="24" rx="4" fill="#9aa4ae" stroke="#555"/><rect x="18" y="22" width="6" height="36" rx="2" fill="#b8c0c8" stroke="#555"/>';
  if(on)g+=rtFlameInner(ion,26,40,130,24);
  return `<svg viewBox="0 0 170 80" class="rt-flsvg">${g}</svg>`}
-function rtAcu(X,m,S0){
- const e=X.err||X.warn,s=X.state,on=['sel','go','wait','run','err','lock'].includes(s),lamp=X.err?'#e5333a':s==='run'&&X.burn?'#25b85a':['sel','go','wait','lock','run'].includes(s)?'#e0b020':'#44484c';
- let d;const dg=Math.min(9,Math.floor(X.ion/2));
- if(e)d=`<g class="${X.err?'rt-a1':'rt-a1'}">${rtSeg7(e[0],146,44,22,28,1)}</g><g class="rt-a2">${rtSeg7(e[1],146,44,22,28)}</g>`;
- else if(X.show>0)d=rtSeg7(String(dg),146,44,22,28);
- else if(s==='sel')d=`<g class="rt-bl">${rtSeg7('-',146,44,22,28)}</g>`;
- else if(s==='lock')d=`<g class="rt-spin">${rtSeg7('-',146,44,22,28)}</g>`;
- else if(s==='purge'||s==='go')d=rtSeg7('-',146,44,22,28);else d=rtSeg7(' ',146,44,22,28);
- const bt=(k,cx,c,sym,lb)=>`<g data-rt="${k}" role="button" tabindex="0" style="cursor:pointer"><circle cx="${cx}" cy="93" r="13" fill="transparent"/><circle cx="${cx}" cy="93" r="7.7" fill="${c}" stroke="#aaa"/><text x="${cx}" y="97" text-anchor="middle" fill="#111" font-size="10">${sym}</text><text x="${cx}" y="111" text-anchor="middle" fill="#ddd" font-size="6.5">${lb}</text></g>`;
- return `<svg viewBox="0 0 230 128" class="rt-pn"><rect width="230" height="128" rx="12" fill="#34383d" stroke="#555b61" stroke-width="2"/><text x="115" y="22" text-anchor="middle" fill="#777" font-weight="700" font-size="13">ermaf</text><polygon points="24,31 207,31 196,110 34,110" fill="#0b0d0f" stroke="#686d72"/>
-<g text-anchor="middle" font-size="8" fill="#ddd">${['♨','♨','◉','♨◉'].map((t,i)=>`<text x="${42+i*24}" y="50">${t}</text><text x="${42+i*24}" y="60" font-size="6">${i+1}</text>`).join('')}</g>
-${[0,1,2,3].map(i=>{const lit=on&&X.mode===i+1;return `<circle class="${s==='sel'&&lit?'rt-bl':''}" cx="${42+i*24}" cy="71" r="3.6" fill="${lit?'#ff9f18':'#4b4f54'}"/>`}).join('')}
-<rect x="138" y="36" width="48" height="44" rx="4" fill="#050403"/>${d}<circle cx="196" cy="58" r="6" fill="${lamp}" stroke="#999"/>
-${bt('mode',66,'#f3f4f5','▶','MODE')}${bt('reset',100,'#eb4545','↺','RESET')}${bt('on',150,'#f3f4f5','⏻','ON/OFF')}</svg>`}
+const _H=(x,y)=>`<g stroke="#e8e8e8" fill="none" stroke-width="1.4" stroke-linecap="round"><path d="M${x-4.5} ${y+6}q-2.5-3 0-6t0-6"/><path d="M${x} ${y+6}q-2.5-3 0-6t0-6"/><path d="M${x+4.5} ${y+6}q-2.5-3 0-6t0-6"/></g>`;
+const _F=(x,y,r=6.5)=>`<g stroke="#e8e8e8" fill="none" stroke-width="1.3"><circle cx="${x}" cy="${y}" r="${r}"/><path d="M${x} ${y}v-${r-1}M${x} ${y}l${r*.75} ${r*.45}M${x} ${y}l-${r*.75} ${r*.45}"/></g>`;
+const _T=(x,y)=>`<g fill="#e8e8e8" stroke="#e8e8e8"><path d="M${x} ${y-5}v7" stroke-width="2.2" stroke-linecap="round"/><circle cx="${x}" cy="${y+3.5}" r="2.4"/></g>`;
+const _Hd=(x,y)=>`<path d="M${x-4} ${y+4}v-6q0-1.2 1.4-1.2t1.4 1.2v-3q0-1.2 1.4-1.2t1.4 1.2v3q0-1.2 1.4-1.2t1.4 1.2v6q0 3-4 3t-3.4-3z" fill="none" stroke="#e8e8e8" stroke-width="1"/>`;
+const _Fl=(x,y)=>`<path d="M${x} ${y-7}q6 6 4 11q-1 4-4 4t-4-4q-2-5 4-11z" fill="none" stroke="#e8e8e8" stroke-width="1.3"/>`;
+function rtAcu(X,m){
+ const e=X.err||X.warn,s=X.state,on=['sel','go','wait','run','err','lock'].includes(s);
+ const heat=X.mode===2||((X.mode===1||X.mode===4)&&X.dem);
+ const lamp=X.err?'#e5333a':(on&&heat&&['go','wait','run','lock'].includes(s))?'#25b85a':on?'#e6b422':'#d5d8db';
+ const sg=(c,cls)=>rtSeg7(c,188,52,22,34,cls),dg=Math.min(9,Math.floor((X.ion||0)/2));let d;
+ if(e)d=`<g class="rt-a1">${rtSeg7(e[0],188,52,22,34,1)}</g><g class="rt-a2">${sg(e[1])}</g>`;
+ else if(X.show>0)d=sg(String(dg));else if(s==='sel')d=`<g class="rt-bl">${sg('-')}</g>`;
+ else if(s==='lock')d=`<g class="rt-spin">${sg('-')}</g>`;else if(s==='purge'||s==='go')d=sg('-');else d=sg(' ');
+ const xs=[62,92,122,152],ic=[_H(62,56),_H(92,56),_F(122,60),_H(146,56)+_F(160,60,5.5)],sy=[_T(62,118),_Hd(92,118),_Hd(122,118),_T(152,118)];
+ const leds=xs.map((x,i)=>{const lit=on&&X.mode===i+1;return ic[i]+`<circle class="${s==='sel'&&lit?'rt-bl':''}" cx="${x}" cy="88" r="4.6" fill="${lit?'#ff9f18':'#4b4f54'}" stroke="#222"/><circle cx="${x}" cy="104" r="5" fill="none" stroke="#bbb" stroke-width=".8"/><text x="${x}" y="107.2" text-anchor="middle" fill="#eee" font-size="7">${i+1}</text>`+sy[i]}).join('');
+ const bt=(k,cx,c,g,lb)=>`<g data-rt="${k}" role="button" tabindex="0" style="cursor:pointer"><circle cx="${cx}" cy="160" r="22" fill="transparent"/><circle cx="${cx}" cy="160" r="14" fill="${c}" stroke="#bbb" stroke-width="1.5"/>${g}<text x="${cx}" y="185" text-anchor="middle" fill="#ddd" font-size="7">${lb}</text></g>`;
+ const gm=cx=>`<path d="M${cx-3.5} 153.5L${cx+5.5} 160L${cx-3.5} 166.5z" fill="#111"/>`,gr=cx=>`<path d="M${cx} 152q5 5 3.5 10q-1 4-3.5 4t-3.5-4q-1.5-5 3.5-10z" fill="#fff"/>`,go=cx=>`<g fill="none" stroke="#111" stroke-width="2" stroke-linecap="round"><path d="M${cx-5} 155.5a7 7 0 1 0 10 0"/><path d="M${cx} 152.5v7"/></g>`;
+ return `<svg viewBox="0 0 320 214" class="rt-pn"><rect width="320" height="214" rx="16" fill="#34383d" stroke="#555b61" stroke-width="2"/><text x="150" y="27" text-anchor="middle" fill="#8a8f94" font-weight="700" font-size="15">ermaf</text><rect x="184" y="14" width="14" height="14" rx="2" fill="#8a8f94"/><polygon points="34,38 286,38 270,196 50,196" fill="#0b0d0f" stroke="#6a6f74"/>${leds}<rect x="180" y="46" width="46" height="46" rx="4" fill="#050403"/>${d}<circle cx="254" cy="66" r="14" fill="${lamp}" stroke="#999" stroke-width="2"/><circle cx="139" cy="168" r="2.5" fill="#222" stroke="#555"/>${bt('mode',88,'#f3f4f5',gm(88),'MODE')}${bt('reset',190,'#e53f46',gr(190),'RESET')}${bt('on',244,'#f3f4f5',go(244),'ON/OFF')}</svg>`}
 function rtBcu(X,m){
- const e=X.err||X.warn,s=X.state,on=['sel','go','wait','run','err','lock'].includes(s),dg=String(e).replace(/\D/g,'').split('').map(Number),rows=['OFF','AUTO ♨','♨','◉','◉ +AUTO'];
+ const e=X.err||X.warn,s=X.state,on=['sel','go','wait','run','err','lock'].includes(s),dg=String(e).replace(/\D/g,'').split('').map(Number);
  const row=i=>{const n=i+1;if(e)return dg.includes(n)?2:0;if(X.show>0)return rtLed(n,X.ion);if(!on)return i===0?1:0;if(i===0)return 0;return i===X.mode?(s==='sel'?2:1):0};
- const bt=(k,cx,c,sym,lb)=>`<g data-rt="${k}" role="button" tabindex="0" style="cursor:pointer"><circle cx="${cx}" cy="152" r="20" fill="transparent"/><circle cx="${cx}" cy="152" r="14" fill="${c}" stroke="#aaa"/><text x="${cx}" y="157" text-anchor="middle" fill="#111" font-size="14">${sym}</text><text x="${cx}" y="130" text-anchor="middle" fill="#ddd" font-size="7">${lb}</text></g>`;
- return `<svg viewBox="0 0 230 185" class="rt-pn"><rect width="230" height="185" rx="8" fill="#15181b" stroke="#59616a" stroke-width="2"/><rect x="8" y="8" width="214" height="169" rx="4" fill="none" stroke="#3a4046"/>
-${rows.map((t,i)=>{const v=row(i);return `<text x="20" y="${30+i*22}" fill="#e7e9ec" font-size="10">${t}</text><circle class="${v===2?'rt-bl':''}" cx="102" cy="${26+i*22}" r="4.6" fill="${v?'#ff9f18':'#4b4f54'}"/><text x="118" y="${30+i*22}" fill="#e7e9ec" font-size="9">${i+1}</text>`}).join('')}
-<path d="M128 26h38l6-3" stroke="#888" fill="none"/><circle cx="192" cy="28" r="12" fill="${X.err?'#e5222a':'#4a1213'}" stroke="#2a0a0a"/>${X.err?'<circle cx="188" cy="24" r="3" fill="#ff9a9a"/>':''}
-${bt('on',58,'#cfd2d6','⏻','ON/OFF')}${bt('mode',116,'#d41f26','','MODE (RESET)')}<text x="152" y="148" fill="#ddd" font-size="9" font-weight="700">krom</text><text x="152" y="158" fill="#ddd" font-size="9" font-weight="700">schröder</text></svg>`}
+ const lab=[`<text x="22" y="60" fill="#e7e9ec" font-size="10">OFF</text>`,`<text x="22" y="88" fill="#e7e9ec" font-size="10">AUTO</text>${_Fl(60,84)}`,_Fl(30,112),_F(30,140,6),`${_F(30,168,6)}<text x="42" y="171" fill="#e7e9ec" font-size="9">+AUTO</text>`];
+ const rows=[0,1,2,3,4].map(i=>{const v=row(i),y=56+i*28;return lab[i]+`<circle class="${v===2?'rt-bl':''}" cx="122" cy="${y}" r="4.8" fill="${v?'#ff9f18':'#4b4f54'}" stroke="#222"/><text x="142" y="${y+3.5}" fill="#e7e9ec" font-size="9">${i+1}</text>`}).join('');
+ const bt=(k,cx,c,g)=>`<g data-rt="${k}" role="button" tabindex="0" style="cursor:pointer"><circle cx="${cx}" cy="226" r="24" fill="transparent"/><circle cx="${cx}" cy="226" r="15" fill="${c}" stroke="#aaa" stroke-width="1.5"/>${g}</g>`;
+ return `<svg viewBox="0 0 250 272" class="rt-pn"><rect width="250" height="272" rx="8" fill="#14171a" stroke="#59616a" stroke-width="2"/><rect x="8" y="8" width="234" height="256" rx="4" fill="none" stroke="#3a4046"/>${rows}<path d="M131 48V176" stroke="#4a5158"/><path d="M152 52h24l6-6" stroke="#888" fill="none"/><circle cx="208" cy="44" r="15" fill="${X.err?'#e5222a':'#6b1517'}" stroke="#2a0a0a" stroke-width="2"/>${X.err?'<circle cx="203" cy="39" r="4" fill="#ff9a9a"/>':''}<text x="62" y="201" text-anchor="middle" fill="#ddd" font-size="8">ON/OFF</text><text x="120" y="196" text-anchor="middle" fill="#ddd" font-size="8">MODE</text><text x="120" y="206" text-anchor="middle" fill="#ddd" font-size="8">(RESET)</text>${bt('on',62,'#d4d6d9',`<g fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round"><path d="M57 220.5a7.5 7.5 0 1 0 10 0"/><path d="M62 217v8"/></g>`)}${bt('mode',120,'#d41f26','')}<text x="172" y="222" fill="#ddd" font-size="11" font-weight="700" font-style="italic">krom</text><text x="172" y="236" fill="#ddd" font-size="11" font-weight="700" font-style="italic">schröder</text></svg>`}
+window.rtAcu40=rtAcu;window.rtBcu40=rtBcu;
 (function(){const c=document.createElement('style');c.textContent=`
 .rt h2{margin:0 0 8px;font-size:20px}.rt-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0}
 .rt-seg{display:inline-flex;background:#f1f5f9;border:1px solid #d1d5db;border-radius:999px;padding:3px}.rt-seg button{border:0;background:transparent;border-radius:999px;padding:6px 14px;cursor:pointer;font:600 13px system-ui;color:#475569}.rt-seg button.on{background:#ea580c;color:#fff;box-shadow:0 1px 4px #0003}
@@ -1682,7 +1680,7 @@ function openSim(){
  let m=(typeof M!=='undefined'?M:'ACU'),view='sim',speed=1,timer=null,T=0,ionSet=rtRnd();
  const act=new Set();let hid=null,trn={nodes:[],solved:false,pick:null,tries:0};
  const mk=()=>({state:'off',stage:-1,t:0,mode:2,err:'',warn:'',burn:false,fl:false,fan:false,spark:false,valve:false,ion:0,dem:false,att:0,show:0,pend:null,pendT:0,win:2,lastStop:-99,runT:0,decay:false,lowT:0,failStage:-1,lockT:0,stopDelay:0,pre:5,lowFlame:0});
- let X=mk();
+ let X=mk();window.__RTX=()=>X;
  function rtRnd(){return Math.round((10+Math.random()*10)*2)/2}
  const o=ov(`<div class="rt"><h2>⏱ Запуск</h2>
  <div class="rt-bar"><div class="rt-seg rt-sm"><button data-rm="ACU">ACU</button><button data-rm="BCU">BCU</button></div>
@@ -2039,29 +2037,46 @@ const st40=document.createElement('style');st40.textContent=`
 .car40-tr{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.car40-tr::-webkit-scrollbar{display:none}
 .car40-tr img{flex:0 0 100%;width:100%;max-height:260px;object-fit:contain;scroll-snap-align:center;background:#000}
 .car40-dots{display:flex;justify-content:center;gap:6px;padding:6px}.car40-dots i{width:7px;height:7px;border-radius:50%;background:var(--bd)}.car40-dots i.on{background:var(--ac)}
-.car40-miss{padding:26px 12px;text-align:center;color:var(--mut);font-size:13px}
+.car40.sm{flex:0 0 100%;width:100%;margin:6px 0 2px}.car40.sm img{max-height:150px}.pg40{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}.pc40{border:1px solid var(--bd);border-radius:12px;background:var(--card);padding:8px;text-align:center}.pc40 b{display:block;font-size:13px;margin-top:6px}.pc40 small{color:var(--mut)}.pc40 .car40 img{max-height:110px}.car40{position:relative}.car40-a{position:absolute;top:50%;transform:translateY(-50%);z-index:2;border:0;border-radius:50%;width:32px;height:32px;background:rgba(0,0,0,.55);color:#fff;font-size:20px;cursor:pointer}.car40-a.l{left:6px}.car40-a.r{right:6px}.algo40{display:flex;flex-direction:row-reverse;flex-wrap:wrap;gap:12px;align-items:flex-start}.algo40>.img40,.algo40>.txt40{flex:1 1 300px;min-width:0}.algo40 .car40-tr img{max-height:none;height:auto;object-fit:contain;background:#000}.car40-miss{padding:26px 12px;text-align:center;color:var(--mut);font-size:13px}
 .v36-fab [data-a=sim]{display:none!important}
 #launchHost .v36-box{position:static!important;inset:auto!important;transform:none!important;width:auto!important;max-width:none!important;max-height:none!important;box-shadow:none!important;margin:0!important}
-#launchHost .v36-x{display:none!important}.v36-ov.inline40{position:static!important;inset:auto!important;background:none!important;display:block!important;padding:0!important;overflow:visible!important;backdrop-filter:none!important}`;document.head.appendChild(st40);
-const EXT=['png','jpg','jpeg','webp'];
+#launchHost .v36-x{display:none!important}#launchHost [data-rm],#launchHost .rt-seg:has([data-rm]){display:none!important}.v36-ov.inline40{position:static!important;inset:auto!important;background:none!important;display:block!important;padding:0!important;overflow:visible!important;backdrop-filter:none!important}`;document.head.appendChild(st40);
+const EXT=['png','jpg','jpeg','webp'],CAR={};
 const probe=async n=>{for(const e of EXT){const u=`images/${n}.${e}`;if(await new Promise(r=>{const i=new Image();i.onload=()=>r(1);i.onerror=()=>r(0);i.src=u}))return u}return null};
-async function loadCar(id,key){const h=document.getElementById(id);if(!h)return;const urls=[];let miss=0;
-for(let i=0;i<12&&miss<2;i++){const u=await probe(i?key+i:key);if(u){urls.push(u);miss=0}else miss++}
-if(!urls.length){h.innerHTML=`<div class="car40-miss">Не вдалося завантажити зображення ${key}.png</div>`;return}
-h.innerHTML=`<div class="car40-tr">${urls.map(u=>`<img src="${u}" alt="${key}">`).join('')}</div>`+(urls.length>1?`<div class="car40-dots">${urls.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join('')}</div>`:'');
-const tr=h.querySelector('.car40-tr');tr.onscroll=()=>{const k=Math.round(tr.scrollLeft/tr.clientWidth);h.querySelectorAll('.car40-dots i').forEach((d,j)=>d.classList.toggle('on',j==k))}}
-const carousel=k=>{const id='cr'+Math.random().toString(36).slice(2,8);setTimeout(()=>loadCar(id,k),0);return `<div class="car40" id="${id}"><div class="car40-miss">…</div></div>`};
+async function find(key,seq){const ck=key+(seq?'#':'');if(CAR[ck])return CAR[ck];const urls=[];let miss=0;for(let i=seq?1:0;i<12&&miss<2;i++){const u=seq?await probe(key+'_'+i):((await probe(i?key+i:key))||(i?await probe(key+'_'+i):null));if(u){urls.push(u);miss=0}else miss++}return CAR[ck]=urls}
+async function loadCar(id,key,fb,seq){const h=document.getElementById(id);if(!h)return;let urls=await find(key,seq);if(!urls.length&&fb)urls=await find(fb);
+if(!urls.length){h.innerHTML=`<div class="car40-miss">Не вдалося завантажити зображення ${key}${seq?'_1':''}.png</div>`;return}
+h.innerHTML=`<div class="car40-tr">${urls.map(u=>`<img src="${u}" alt="${key}">`).join('')}</div>`+(urls.length>1?`<button type="button" class="car40-a l">‹</button><button type="button" class="car40-a r">›</button><div class="car40-dots">${urls.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join('')}</div>`:'');
+const tr=h.querySelector('.car40-tr');tr.onscroll=()=>{const k=Math.round(tr.scrollLeft/tr.clientWidth);h.querySelectorAll('.car40-dots i').forEach((d,j)=>d.classList.toggle('on',j==k))};
+h.querySelectorAll('.car40-a').forEach(x=>x.onclick=()=>tr.scrollBy({left:(x.classList.contains('l')?-1:1)*tr.clientWidth,behavior:'smooth'}))}
+const carousel=(k,fb,cls,seq)=>{const id='cr'+Math.random().toString(36).slice(2,8);setTimeout(()=>loadCar(id,k,fb,seq),0);return `<div class="car40 ${cls||''}" id="${id}"><div class="car40-miss">…</div></div>`};
 nodeVisual27=id=>carousel(id);
+/* картинки в кроках алгоритму: images/stepN.png (+ stepN1.png, stepN_1.png…); якщо немає — картинка вузла */
+const FB=['ctrl','ctrl','vane','fan','cg','fan','ign','chamber','cg'],MAP=[0,1,2,3,4,6,7,8];
+function decorateSteps(){
+ if(typeof V!=='undefined'&&V==='algo')document.querySelectorAll('#app>.card').forEach(c=>{if(c.__d)return;const n=parseInt((c.querySelector('b')||{}).textContent);if(isNaN(n))return;c.__d=1;const t=document.createElement('div');t.className='txt40';while(c.firstChild)t.appendChild(c.firstChild);const im=document.createElement('div');im.className='img40';im.innerHTML=carousel(M.toLowerCase()+'_step'+n,null,'',true);c.classList.add('algo40');c.append(im,t)})}
+
+const PA=[['Мотор вентилятора 50 Гц','N50260350'],['Гнучка з’єднувальна труба','N70300084'],['Флюгер в комплекті','N70300101'],['Сопло, природний газ','N70300055'],['Сопло, пропан','N70300056'],['Диск діафрагми пальника','N70300058'],['Іонізаційний електрод','N70300064'],['Комплект іонізаційних кабелів','N70300108'],['Камера згоряння','N70300025'],['Свічка запалювання','N70300063'],['Набір кабелів розпалу','N70300104'],['Обмежувач температури STB','N70300095'],['Запальний трансформатор','N50260109'],['Панель керування ACU 121','N70300005'],['Смарт-картка BCC','N70300007'],['Блок газових клапанів CG 2','N70300074'],['Комплект кабелів GP ACU','N70300088'],['Захисна решітка','N52700002'],['Крильчатка 50 Гц','N50260399'],['Кожух входу вентилятора','N50260244'],['Кришка сервісного отвору','N70300147']],
+PB=[['Вентилятор 50 Гц, комплект','N50260401'],['Сопло LPG','N50260020'],['Сопло, природний газ','N50260152'],['Диск пальника','N50260168'],['Електрод іонізації','N50260031'],['Комплект кабелів іонізації','N50500080'],['Свічка запалювання','N50260030'],['Комплект кабелів розпалу','N50260213'],['Датчик температури STM/STL','N50260098'],['Флюгер в комплекті','N50260144'],['BCU 300, верхня частина','N50260101'],['BCU 300, нижня частина','N50260102'],['Запальний трансформатор','N50260109'],['Блок газових клапанів CG 220','N50280123'],['Захисний ковпак BCU','N50260147'],['Захисний ковпак CG','N50260148']],
+PC=[['Кімнатний термостат TH 215','N50260145'],['Редуктор RECA 1,5 бар → 50 мбар','N52600023'],['Кульовий кран 2×½″','N52600019'],['Кульовий кран ½″ вн./зовн.','N52600027'],['Комплект підключення, природний газ','N52600072'],['Комплект підключення, пропан','N52600025'],['Кран і шланг DVGW','N52990209']];
+const card=x=>`<div class="pc40">${carousel(x[1],null,'sm')}<b>${x[0]}</b><small>№ ${x[1]}</small></div>`;
+function parts(){if(V!=='tech'||document.querySelector('#parts40'))return;const a=document.querySelector('#app');if(!a)return;
+ a.insertAdjacentHTML('beforeend',`<div id="parts40"><h3>Основні запчастини</h3><div class="pg40">${(M=='ACU'?PA:PB).map(card).join('')}</div><h3>Приладдя</h3><div class="pg40">${PC.map(card).join('')}</div><p class="mut">Фото: images/&lt;номер&gt;.png (наприклад N70300101.png).</p></div>`)}
+function fixHH(){document.querySelectorAll('svg.ht').forEach(svg=>{const c=svg.querySelector('[data-n="ctrl"]');if(!c)return;let bb;try{bb=c.getBBox()}catch(e){return}if(!bb.width)return;if(c.dataset.bx){const d=c.dataset.bx.split(',').map(Number);bb={x:d[0],y:d[1],width:d[2],height:Math.max(d[3],150)}}const vb=svg.viewBox.baseVal;if(vb.height<bb.y+bb.height+80)vb.height=bb.y+bb.height+80;let x=bb.x;
+ [...svg.querySelectorAll('[data-n="fuse"],[data-n="bcc"],[data-n="trans"]')].filter(g=>g.dataset.n!=='trans'||g.textContent.trim()==='Трансформатор').forEach(g=>{g.removeAttribute('transform');const b=g.getBBox();g.setAttribute('transform',`translate(${x-b.x} ${bb.y+bb.height+28-b.y})`);x+=b.width+10})})}
+let dq=0;new MutationObserver(()=>{if(dq)return;dq=requestAnimationFrame(()=>{dq=0;decorateSteps();parts();fixHH()})}).observe(document.body,{childList:true,subtree:true});
+window.car40=carousel;
+
 /* розширений опис вузла + можливі несправності замість «Вимкнути» */
 const _info=info;
 info=function(n){_info(n);const box=$('#info');if(!box)return;const d=NODE_DOC[n],x=N[n]||(d&&[d[0],d[1],d[2]]);if(!x)return;
 const fl=faultsFor(n);
 box.innerHTML=`<h3 style="margin-top:0">${x[0]}</h3>${carousel(n)}<p>${x[1]}</p>${d?`<p><b>Призначення:</b> ${d[1]}</p><p><b>Як перевірити:</b> ${d[2]}</p>`:''}<p class="mut"><b>Норма:</b> ${x[2]}</p><h4 style="margin:10px 0 4px">Можливі несправності</h4><div class="chips">${fl.map(f=>`<button type="button" class="chip ${HOME_ACT.has(f[0])?'on':''}" onclick="toggleFault40('${f[0]}','${n}')">${f[1]} <small>(${M=='ACU'?f[4]:f[5]})</small></button>`).join('')||'<span class="mut">Для цього вузла несправності не змодельовані.</span>'}</div><p class="mut" style="margin-top:8px">Обрана несправність діє в симуляторі: система поводиться так, ніби вузол несправний.</p>`};
 window.toggleFault40=(id,n)=>{if(HOME_ACT.has(id)){HOME_ACT.delete(id);act.delete(id)}else{HOME_ACT.add(id);act.add(id)}
-NODE_POWER39.clear();HOME_ACT.forEach(i=>{const f=SF.find(q=>q[0]==i);if(f)NODE_POWER39.add(f[2])});info(n)};
+NODE_POWER39.clear();HOME_ACT.forEach(i=>{const f=SF.find(q=>q[0]==i);if(f)NODE_POWER39.add(f[2])});applySimFaults();info(n)};
 /* MODE / RESET(BCU) — у будь-який момент */
 const _btn=btn;
-btn=function(k){if(!st)return _btn(k);const bcu=M!='ACU';
+btn=function(k){if(!st||!st.log)return _btn(k);const bcu=M!='ACU';
 if(k=='mode'||(bcu&&k=='reset')){
  if(st.err){if(bcu)return _btn('reset');cm();pnl();slog();return}
  if(['start','select','purge'].includes(st.state)){cm();tk++;st.burn=false;st.state='off';st.stage=-1;st.log.push('MODE: режим змінено, запуск виконується заново.');start();return}
@@ -2081,13 +2096,16 @@ g.innerHTML=`<path d="M${x-4.7} ${y-4.7}A6.6 6.6 0 1 0 ${x+4.7} ${y-4.7}" fill="
 let q=0;new MutationObserver(()=>{if(q)return;q=requestAnimationFrame(()=>{q=0;fixPower()})}).observe(document.body,{childList:true,subtree:true});
 /* вкладка «Запуск» замість вікна */
 V26NAV.launch=['⏱','Запуск'];
-let lov=null,lastV='',busy=0;
+let lov=null,lastV='',busy=0,SIMO=null;
+function ensureSim(){if(SIMO&&SIMO.isConnected)return SIMO;window.openRealtimeSim36();const a=document.querySelectorAll('.v36-ov');SIMO=a[a.length-1];SIMO.classList.add('inline40');parkSim();return SIMO}
+function parkSim(){if(!SIMO)return;let h=document.getElementById('simHold40');if(!h){h=document.createElement('div');h.id='simHold40';h.style.display='none';document.body.appendChild(h)}if(SIMO.parentNode!==h)h.appendChild(SIMO)}
+function applySimFaults(){const o=ensureSim();const c=[...o.querySelectorAll('button')].find(b=>/Зняти всі/.test(b.textContent));c&&c.click();const seen=new Set();NODE_POWER39.forEach(n=>{if(seen.has(n))return;seen.add(n);const g=o.querySelector('.n[data-n="'+n+'"]');g&&g.dispatchEvent(new MouseEvent('click',{bubbles:true}))})}
+window.resetSim40=()=>{if(SIMO){SIMO.remove();SIMO=null}};window.applySim40=applySimFaults;window.ensureSim40=ensureSim;window.parkSim40=parkSim;
 const _r=render;
-render=function(){if(lov){lov._close&&lov._close();lov.remove();lov=null}
+render=function(){parkSim();
 if(V!=='launch'){_r();if(V==='stand'&&lastV!=='stand'){HOME_ACT.forEach(i=>act.add(i));typeof chips=='function'&&chips()}lastV=V;return}
 if(busy)return;busy=1;setTimeout(()=>busy=0,0);V='home';try{_r()}catch(e){}V='launch';lastV=V;
-$('#app').innerHTML='<div id="launchHost"></div>';window.openRealtimeSim36();
-const all=document.querySelectorAll('.v36-ov');lov=all[all.length-1];lov.classList.add('inline40');$('#launchHost').appendChild(lov);
+$('#app').innerHTML='<div id="launchHost"></div>';const o=ensureSim();o.style.display='block';$('#launchHost').appendChild(o);
 headV26();document.querySelectorAll('header [data-v]').forEach(b=>b.classList.toggle('on',b.dataset.v==='launch'))};
 })();
 
@@ -2096,7 +2114,7 @@ headV26();document.querySelectorAll('header [data-v]').forEach(b=>b.classList.to
 window.__EDITS__=window.__EDITS__||{};
 const LS='gp70_edits',LM='gp70_editmode';
 let EDITS=Object.assign({},window.__EDITS__);try{Object.assign(EDITS,JSON.parse(localStorage.getItem(LS)||'{}'))}catch(e){}
-const ORIG=new WeakMap();let editing=false;
+const ORIG=new WeakMap();let editing=false;window.isEdit40=()=>editing;
 const roots=()=>[document.querySelector('header'),document.querySelector('#app')].filter(Boolean);
 function walk(fn){roots().forEach(r=>{const w=document.createTreeWalker(r,NodeFilter.SHOW_TEXT);let n;const a=[];while(n=w.nextNode())a.push(n);a.forEach(fn)})}
 function applyEdits(){if(editing)return;walk(n=>{const v=n.nodeValue,k=ORIG.has(n)?ORIG.get(n):v;if(EDITS[k]!==undefined&&v!==EDITS[k]){n.nodeValue=EDITS[k];ORIG.set(n,k)}else if(!ORIG.has(n))ORIG.set(n,v)})}
@@ -2106,31 +2124,103 @@ document.addEventListener('input',e=>{if(!editing)return;const n=getSelection().
 function setEdit(on){editing=on;localStorage.setItem(LM,on?'1':'');if(on)tag();roots().forEach(r=>r.contentEditable=on?'true':'false');document.body.classList.toggle('editmode',on);if(!on)applyEdits()}
 const es=document.createElement('style');es.textContent='.editmode #app,.editmode header{outline:2px dashed #e8590c;outline-offset:-2px}.editmode::before{content:"✏️ Режим редагування тексту — змініть будь-який текст у меню; зберігається автоматично";position:fixed;bottom:0;left:0;right:0;z-index:99;background:#e8590c;color:#fff;font:600 13px system-ui;padding:6px 10px;text-align:center}.set40{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;padding:12px}.set40>div{background:var(--card);color:var(--fg);border-radius:14px;padding:16px;max-width:420px;width:100%}.set40 button{display:block;width:100%;margin:6px 0}';document.head.appendChild(es);
 async function dl(){let src;try{src=await (await fetch(location.pathname.endsWith('/')?'index.html':location.pathname,{cache:'no-store'})).text()}catch(e){alert('Завантаження HTML працює при відкритті через GitHub Pages/сервер, не з file://');return}
-const js=JSON.stringify(EDITS).replace(/</g,'\\u003c');src=src.replace(/window\.__EDITS__=window\.__EDITS__\|\|\{\};/,()=>'window.__EDITS__='+js+';');
+const js=JSON.stringify(EDITS).replace(/</g,'\\u003c');src=src.replace(/\/\*A\*\/.*?\/\*B\*\//s,()=>'/*A*/'+js+'/*B*/').replace(/\/\*C\*\/.*?\/\*E\*\//s,()=>'/*C*/'+JSON.stringify(window.ED40.data).replace(/</g,'\\u003c')+'/*E*/');
 const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([src],{type:'text/html'}));a.download='index.html';a.click()}
 function openSet(){const o=document.createElement('div');o.className='set40';o.innerHTML=`<div><h3 style="margin-top:0">⚙️ Налаштування</h3><label><input type="checkbox" id="ed40" ${editing?'checked':''}> Режим повного редагування тексту</label><p class="mut">Змінені тексти (${Object.keys(EDITS).length}) зберігаються у пам'яті браузера й діють у всіх меню.</p><button id="sv40">💾 Зберегти в кеш браузера</button><button id="dl40" class="pr">⬇️ Завантажити HTML зі змінами</button><button id="rs40">↺ Скинути всі правки</button><button id="cl40">Закрити</button></div>`;
-document.body.appendChild(o);const q=s=>o.querySelector(s);q('#ed40').onchange=e=>setEdit(e.target.checked);q('#sv40').onclick=()=>{save();alert('Збережено в кеш браузера')};q('#dl40').onclick=dl;q('#rs40').onclick=()=>{if(confirm('Скинути всі правки?')){EDITS={};save();location.reload()}};q('#cl40').onclick=()=>o.remove();o.onclick=e=>{if(e.target===o)o.remove()}}
-const b=document.querySelector('header b');if(b&&b.firstChild){const t=b.firstChild.nodeValue,i=t.indexOf('🔥');if(i>=0){b.firstChild.nodeValue=t.slice(i+2);const s=document.createElement('span');s.textContent='🔥';s.style.cursor='pointer';s.title='Налаштування';s.onclick=e=>{e.stopPropagation();openSet()};b.insertBefore(s,b.firstChild)}}
+document.body.appendChild(o);const q=s=>o.querySelector(s);q('#ed40').onchange=e=>setEdit(e.target.checked);q('#sv40').onclick=()=>{save();alert('Збережено в кеш браузера')};q('#dl40').onclick=dl;q('#rs40').onclick=()=>{if(confirm('Скинути всі правки?')){EDITS={};save();localStorage.removeItem('gp70_custom');location.reload()}};q('#cl40').onclick=()=>o.remove();o.onclick=e=>{if(e.target===o)o.remove()}}
+const b=document.querySelector('header b');if(b&&b.firstChild){const t=b.firstChild.nodeValue,i=t.indexOf('🔥');if(i>=0){b.firstChild.nodeValue=t.slice(i+2);const s=document.createElement('i');s.style.fontStyle='normal';s.textContent='🔥';s.style.cursor='pointer';s.title='Налаштування';s.onclick=e=>{e.stopPropagation();openSet()};b.insertBefore(s,b.firstChild)}}
 new MutationObserver(()=>{if(!editing)requestAnimationFrame(applyEdits)}).observe(document.body,{childList:true,subtree:true});
 const _bm=bcuMarkup;bcuMarkup=function(x,y,w,h){return _bm(x+w*.09,y,w*.82,h)};
 /* несправності з головної → нова симуляція (Запуск) */
-const _rl=render;
-render=function(){_rl();if(V==='launch'){const host=document.querySelector('#launchHost');if(host){const seen=new Set();NODE_POWER39.forEach(n=>{if(seen.has(n))return;seen.add(n);const g=host.querySelector('.n[data-n="'+n+'"]');g&&g.dispatchEvent(new MouseEvent('click',{bubbles:true}))})}}};
+let lastM40=M;const _rl=render;
+render=function(){if(M!==lastM40){lastM40=M;window.resetSim40();if(NODE_POWER39.size)setTimeout(()=>window.applySim40(),80)}_rl();if(false){const host=document.querySelector('#launchHost');if(host){const seen=new Set();NODE_POWER39.forEach(n=>{if(seen.has(n))return;seen.add(n);const g=host.querySelector('.n[data-n="'+n+'"]');g&&g.dispatchEvent(new MouseEvent('click',{bubbles:true}))})}}};
+const fx0=id=>({err:String(id),warn:'',state:'err',mode:1,ion:0,show:0,burn:false});pACU=id=>window.rtAcu40(fx0(id),'ACU');pBCU=id=>window.rtBcu40(fx0(id),'BCU');
+
+/* головна: панель, вентилятор і флюгер синхронізовані з єдиним симулятором */
+const NS2='http://www.w3.org/2000/svg',SH=150;
+const cs=document.createElement('style');cs.textContent='.spin40{transform-box:fill-box;transform-origin:center;animation:sp40 .45s linear infinite}@keyframes sp40{to{transform:rotate(360deg)}}.vw40{transform-box:fill-box;transform-origin:50% 0;transition:transform .5s}';document.head.appendChild(cs);
+const wrap=(el,cls)=>{if(el.parentNode.classList&&el.parentNode.classList.contains(cls))return el.parentNode;const w=document.createElementNS(NS2,'g');w.classList.add(cls);el.parentNode.insertBefore(w,el);w.appendChild(el);return w};
+function mirror(){const o=window.ensureSim40();if(V!=='launch')window.parkSim40();const pn=o.querySelector('.rt-pnl svg'),X=window.__RTX&&window.__RTX();if(!pn)return;
+ document.querySelectorAll('svg.ht').forEach(svg=>{const c=svg.querySelector('[data-n="ctrl"]');if(!c)return;
+  if(!c.dataset.bx){let b;try{b=c.getBBox()}catch(e){return}if(!b.width)return;c.dataset.bx=[b.x,b.y,b.width,b.height].join(',')}
+  c.classList.remove('ctrl-acu','ctrl-bcu');c.style.opacity='1';c.style.filter='none';const [x,y,w,h]=c.dataset.bx.split(',').map(Number),vb=pn.getAttribute('viewBox').split(' ').map(Number),pw=vb[2]*SH/vb[3];
+  const html=`<svg x="${x+(w-pw)/2}" y="${y}" width="${pw}" height="${SH}" viewBox="${vb.join(' ')}">${pn.innerHTML}</svg>`;
+  if(c.__h!==html||!c.querySelector(':scope>svg')){c.__h=html;c.innerHTML=html}
+  const mod=svg.querySelector('.v15-modules'),pv=c.querySelector(':scope>svg');if(mod&&!svg.closest('.v36-ov')){mod.querySelectorAll('.fuse-unit').forEach(g=>{g.dataset.n=/F2/.test(g.textContent)?'f2':'f1';g.classList.add('n')});[...mod.children].forEach(g=>{const t=g.textContent.trim();if(t==='BCC'||t==='Трансформатор'){g.dataset.n=t==='BCC'?'bcc':'trans';g.classList.add('n')}})}if(mod&&pv){mod.removeAttribute('transform');const sr=svg.getBoundingClientRect();if(sr.width){const sc=sr.width/svg.viewBox.baseVal.width,pr=pv.getBoundingClientRect(),mr=mod.getBoundingClientRect(),dy=Math.max(0,(pr.bottom+14-mr.top)/sc);if(dy>0)mod.setAttribute('transform',`translate(0 ${dy})`);const vb=svg.viewBox.baseVal,need=(mr.bottom-sr.top)/sc+dy+30;if(need>vb.height)vb.height=need}}
+svg.querySelectorAll('[data-n="fuse"]').forEach(g=>{if(g.textContent.trim()==='F1 / F2')g.style.display='none'});
+  if(!svg.closest('.v36-ov')&&X){const fan=svg.querySelector('[data-n="fan"] .blades');if(fan)wrap(fan,'fanw').classList.toggle('spin40',!!X.fan);
+   const vr=[...svg.querySelectorAll('[data-n="vane"] rect')].find(r=>r.getAttribute('fill')==='#d9a441');if(vr)wrap(vr,'vw40').style.transform=`rotate(${X.fan&&(X.fl||X.state==='run'||X.stage>=4)?-35:0}deg)`}})}
+document.addEventListener('click',e=>{const g=e.target.closest&&e.target.closest('#app svg.ht [data-rt]');if(!g)return;e.stopPropagation();e.preventDefault();const t=window.ensureSim40().querySelector('[data-rt="'+g.dataset.rt+'"]');t&&t.dispatchEvent(new MouseEvent('click',{bubbles:true}))},true);
+setInterval(mirror,250);
 if(localStorage.getItem(LM))setEdit(true);else applyEdits();
 try{render()}catch(e){console.error(e)}
 })();
 
-/* user-v41-runtime */
+/* ===== v41: редактор несправностей і кроків перевірки ===== */
 (function(){
- const esc=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- const stageImages=['power.png','ctrl.png','stb.png','vane.png','pg.png','fan.png','ign.png','ion.png','cg.png'];
- function stageMedia(i){const f=stageImages[i]||`stage_${i+1}.png`;return `<div class="algo-media-v41"><img src="images/${f}" alt="Зображення етапу ${i+1}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><div class="algo-missing-v41" style="display:none">Не вдалося завантажити зображення ${f}</div></div>`}
- rAlgo=function(){const ac=M==='ACU';document.querySelector('#app').innerHTML=`<h2>Алгоритм запуску (${ac?'ACU':'BCU'})</h2><p class="mut">Етапи від увімкнення до вимкнення: що відбувається, що перевіряється і яка помилка виникає при негативному результаті.</p>`+ST.map((x,i)=>`<div class="card algo-card-v41">${stageMedia(i)}<div class="algo-text-v41"><b>${i+1}. ${x[0]}</b><p>${x[1]}</p><p class="mut">Перевіряється: ${x[2]}</p><p><b>Якщо не пройдено →</b> ${x[ac?3:4]}</p></div></div>`).join('')};
- acuMarkup=function(x=0,y=0,w=460,h=255,S0){const q=S0||st||{},err=String(q.err||''),mode=Number(q.mode||1),status=!err&&(['select','start','wait','purge','run'].includes(q.state)||q.dem);const sc=Math.min(w/460,h/255),tx=x+(w-460*sc)/2,ty=y+(h-255*sc)/2;return `<g transform="translate(${tx} ${ty}) scale(${sc})" class="acu-v41 panel-action"><defs><linearGradient id="acuCase41" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#4b5157"/><stop offset="1" stop-color="#252a2f"/></linearGradient><radialGradient id="acuBtn41"><stop stop-color="#79828a"/><stop offset="1" stop-color="#24292e"/></radialGradient></defs><rect x="4" y="4" width="452" height="247" rx="22" fill="url(#acuCase41)" stroke="#737b83" stroke-width="5"/><text x="230" y="31" text-anchor="middle" fill="#c8cdd2" font-size="17" font-weight="700">ermaf ACU 121</text><path d="M43 47H417L393 225H67Z" fill="#080a0c" stroke="#7b8289" stroke-width="3"/><rect x="82" y="71" width="126" height="83" rx="5" fill="#100706" stroke="#65433f"/><text x="145" y="132" text-anchor="middle" font-family="monospace" font-size="52" font-weight="800" fill="#ff3b30">${esc(err||'0')}</text><circle class="acu-status" cx="233" cy="84" r="11" fill="${status?'#25b85a':'#d7a51c'}"/><text x="233" y="110" text-anchor="middle" fill="#d9dde0" font-size="11">СТАН</text>${['Авто обігрів','Обігрів','Вентиляція','Вентиляція + автообігрів'].map((t,i)=>`<circle cx="268" cy="${61+i*31}" r="7" fill="${mode===i+1?'#ffad22':'#4b5157'}"/><text x="285" y="${65+i*31}" fill="#eceff1" font-size="11">${t}</text>`).join('')}${[['MODE',116],['RESET',222],['ON/OFF',328]].map(([t,c],i)=>`<circle cx="${c}" cy="193" r="27" fill="url(#acuBtn41)" stroke="#8d969e" stroke-width="3"/><circle cx="${c}" cy="193" r="19" fill="${i===1?'#b82f3b':'#343a40'}"/><text x="${c}" y="198" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">${t}</text>`).join('')}</g>`};
- pACU=id=>`<svg viewBox="0 0 460 255" class="pn acu-v41">${acuMarkup(0,0,460,255,{state:'err',err:String(id),mode:1})}</svg>`;
- panelOnlyMarkup=function(){const a=M==='ACU';return `<svg viewBox="0 0 ${a?460:230} ${a?255:185}" style="width:100%;max-width:${a?560:300}px;display:block;margin:auto">${a?acuMarkup(0,0,460,255):bcuMarkup(0,0,230,185)}</svg>`};
- const oldRender=render;render=function(){oldRender();document.querySelectorAll('header').forEach(h=>{h.style.minHeight='0';h.style.height='auto'})};
- try{render()}catch(e){console.error('v41 render',e)}
+const R=window.RT40,LSC='gp70_custom',K=R.ST.map(s=>s.k),MAP=[0,1,2,3,4,6,7,8];
+let C={custom:[],over:{},removed:[],sfOver:{},sfRemoved:[],cards:{}};
+try{Object.assign(C,window.__CUSTOM__||{},JSON.parse(localStorage.getItem(LSC)||'null')||{})}catch(e){}
+const cl=o=>JSON.parse(JSON.stringify(o)),O={ft:R.FT.map(f=>({...f})),sf:SF.map(a=>a.slice()),cards:cl(R.CARDS)};
+const esc=t=>String(t==null?'':t).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+const stIdx=k=>{const i=K.indexOf(k);let r=0;MAP.forEach((m,j)=>{if(m<=i)r=j});return r};
+const save=()=>{try{localStorage.setItem(LSC,JSON.stringify(C))}catch(e){}};
+function split(){const nn=n=>/F2/.test(n)?'f2':'f1';
+ R.FT.forEach(f=>{if(f.n==='fuse'&&/F2/.test(f.l))f.at='power'});SF.forEach(a=>{if(a[2]==='fuse')a[2]=nn(a[1])});
+ R.CARDS.f1=R.CARDS.f2=R.CARDS.fuse;[['f1','Запобіжник F1 (вентилятор)'],['f2','Запобіжник F2 (плата керування)']].forEach(([k,t])=>{const b=N.fuse||['',''];N[k]=N[k]||[t].concat(b.slice(1));if(typeof NODE_DOC!=='undefined'&&NODE_DOC.fuse)NODE_DOC[k]=NODE_DOC[k]||[t].concat(NODE_DOC.fuse.slice(1))})}
+function apply(){
+ R.FT.length=0;Object.keys(R.FTM).forEach(k=>delete R.FTM[k]);SF.length=0;
+ O.ft.filter(f=>!C.removed.includes(f.id)).map(f=>({...f,...(C.over[f.id]||{})})).concat(C.custom).forEach(f=>{R.FT.push(f);R.FTM[f.id]=f});
+ O.sf.filter(a=>!C.sfRemoved.includes(a[0])).forEach(a=>{const o=C.sfOver[a[0]];SF.push(o?[a[0],o.l,o.n,stIdx(o.at),o.a||null,o.b||null]:a.slice())});
+ C.custom.forEach(f=>SF.push([f.id,f.l,f.n,stIdx(f.at),f.a||null,f.b||null]));
+ Object.keys(R.CARDS).forEach(k=>delete R.CARDS[k]);Object.assign(R.CARDS,cl(O.cards),cl(C.cards));split()}
+function refresh(){save();apply();window.resetSim40();NODE_POWER39.clear();window.HOME_ACT40&&0;const v=V;render();if(window.__cn&&V==='home')info(window.__cn)}
+function rec(src,id,node){
+ if(src==='sf'){const a=SF.find(x=>x[0]===id),k=K[MAP[a[3]]];return{src,id,l:a[1],n:a[2],at:k,a:a[4],b:a[5],c:0}}
+ if(src==='ft'||src==='custom'){const f=R.FTM[id];return{src:C.custom.some(x=>x.id===id)?'custom':'ft',id,l:f.l,n:f.n,at:f.at,a:f.a,b:f.b,rt:f.rt,c:f.c||0}}
+ return{src:'custom',id:'c'+Date.now().toString(36),l:'',n:node||Object.keys(N)[0],at:K[0],a:'',b:'',rt:null,c:0,isNew:1}}
+const cardRow=(c,i,r)=>`<div class="e40c"><label><input type="radio" name="e40r" value="${i}" ${i===r?'checked':''}> причина</label><input class="t" placeholder="Крок перевірки (назва)" value="${esc(c.t)}"><input class="k" placeholder="Що перевірити" value="${esc(c.chk)}"><input class="f" placeholder="Як усунути" value="${esc(c.fix)}"><button type="button" data-delc>✕</button></div>`;
+const cs=document.createElement('style');cs.textContent='.e40{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.55);overflow:auto;padding:12px}.e40>div{background:var(--card,#fff);color:var(--fg,#111);max-width:640px;margin:0 auto;border-radius:14px;padding:16px}.e40 label{display:block;margin:8px 0 2px;font-weight:600;font-size:13px}.e40 input[type=text],.e40 select{width:100%;padding:6px 8px;box-sizing:border-box}.e40 .row{display:flex;gap:8px}.e40 .row>*{flex:1}.e40c{display:grid;grid-template-columns:auto 1fr;gap:4px;border:1px solid #d1d5db;border-radius:8px;padding:6px;margin:6px 0}.e40c input.t,.e40c input.k,.e40c input.f{grid-column:1/3;padding:5px;box-sizing:border-box;width:100%}.e40 button{padding:8px 12px;margin:6px 6px 0 0;cursor:pointer}.e40 .del{color:#b91c1c}.ed40{margin:4px 4px 0 0}.chip .x40{margin-left:6px;color:#b91c1c;font-weight:700}';document.head.appendChild(cs);
+function open(src,id,node){const r=rec(src,id,node),o=document.createElement('div');o.className='e40';
+ const stOpts=(sel)=>R.ST.map((s,i)=>`<option value="${i}" ${i===sel?'selected':''}>${i}. ${esc(s.t.slice(0,60))}</option>`).join(''),bi=K.indexOf(r.at),ai=Math.max(0,bi-1),nOpts=Object.keys(N).map(k=>`<option value="${k}" ${k===r.n?'selected':''}>${esc(N[k][0])}</option>`).join('');
+ const cards=cl(R.CARDS[r.n]||[]);
+ o.innerHTML=`<div><h3 style="margin-top:0">${r.isNew?'Нова несправність':'Несправність'}</h3><label>Назва</label><input type="text" id="e-l" value="${esc(r.l)}"><label>Вузол, у якому виникає</label><select id="e-n">${nOpts}</select><div class="row"><div><label>Після етапу запуску</label><select id="e-af">${stOpts(ai)}</select></div><div><label>Перед етапом запуску</label><select id="e-bf">${stOpts(bi)}</select></div></div><div class="row"><div><label>Код помилки ACU</label><input type="text" id="e-a" value="${esc(r.a||'')}" placeholder="напр. F1"><label style="font-weight:400"><input type="checkbox" id="e-ac" ${r.isNew||r.a?'checked':''}> діє в режимі ACU</label></div><div><label>Код помилки BCU</label><input type="text" id="e-b" value="${esc(r.b||'')}" placeholder="напр. 4"><label style="font-weight:400"><input type="checkbox" id="e-bc" ${r.isNew||r.b?'checked':''}> діє в режимі BCU</label></div></div><label style="font-weight:400"><input type="checkbox" id="e-rt" ${r.rt?'checked':''}> може виникнути й під час роботи (не лише при пуску)</label><h4>Кроки перевірки вузла</h4><div id="e-cards">${cards.map((c,i)=>cardRow(c,i,r.c)).join('')}</div><button type="button" id="e-addc">＋ Додати крок</button><hr><button type="button" id="e-ok"><b>Зберегти</b></button><button type="button" id="e-x">Скасувати</button>${r.isNew?'':'<button type="button" class="del" id="e-del">Видалити несправність</button>'}</div>`;
+ document.body.appendChild(o);const q=s=>o.querySelector(s);
+ q('#e-af').onchange=e=>{q('#e-bf').value=Math.min(R.ST.length-1,+e.target.value+1)};
+ q('#e-n').onchange=e=>{q('#e-cards').innerHTML=cl(R.CARDS[e.target.value]||[]).map((c,i)=>cardRow(c,i,0)).join('')};
+ o.onclick=e=>{if(e.target.matches('[data-delc]'))e.target.closest('.e40c').remove()};
+ q('#e-addc').onclick=()=>{q('#e-cards').insertAdjacentHTML('beforeend',cardRow({t:'',chk:'',fix:''},q('#e-cards').children.length,-1))};
+ q('#e-x').onclick=()=>o.remove();
+ if(q('#e-del'))q('#e-del').onclick=()=>{if(confirm('Видалити несправність?')){del(r.src,r.id);o.remove()}};
+ q('#e-ok').onclick=()=>{const l=q('#e-l').value.trim();if(!l){alert('Вкажіть назву');return}
+  const n=q('#e-n').value,at=K[+q('#e-bf').value],a=q('#e-ac').checked&&q('#e-a').value.trim()||null,b=q('#e-bc').checked&&q('#e-b').value.trim()||null,rt=q('#e-rt').checked?'any':null;
+  const rows=[...o.querySelectorAll('.e40c')],cd=rows.map(x=>({t:x.querySelector('.t').value.trim(),chk:x.querySelector('.k').value.trim(),fix:x.querySelector('.f').value.trim()})).filter(x=>x.t),pr=o.querySelector('input[name=e40r]:checked'),c=pr?Math.max(0,rows.indexOf(pr.closest('.e40c'))):0;
+  C.cards[n]=cd;
+  const f={id:r.id,l,n,c,at,a,b,rt,ra:rt?a:null,rb:rt?b:null,dl:0};
+  if(r.src==='custom'){const i=C.custom.findIndex(x=>x.id===r.id);if(i>=0)C.custom[i]=f;else C.custom.push(f)}
+  else if(r.src==='ft')C.over[r.id]={l,n,at,a,b,rt,ra:f.ra,rb:f.rb,c};
+  else C.sfOver[r.id]={l,n,at,a,b};
+  o.remove();refresh()}}
+function del(src,id){if(C.custom.some(x=>x.id===id))C.custom=C.custom.filter(x=>x.id!==id);else if(src==='sf')C.sfRemoved.push(id);else C.removed.push(id);refresh()}
+const _i=info;info=function(n){window.__cn=n;_i(n)};
+document.addEventListener('click',e=>{if(!window.isEdit40())return;const t=e.target;let b;const stop=()=>{e.stopPropagation();e.preventDefault()};
+ if(b=t.closest('[data-add40]')){stop();open('new',null,b.dataset.node);return}
+ if(b=t.closest('[data-del40]')){stop();if(confirm('Видалити несправність?'))del(b.dataset.src,b.dataset.del40);return}
+ if(b=t.closest('.chip[onclick*="toggleFault40"]')){stop();open('sf',b.getAttribute('onclick').match(/'([^']+)'/)[1]);return}
+ if(b=t.closest('.rt-chip[data-ft]')){stop();open('ft',b.dataset.ft)}},true);
+function misc(){document.querySelectorAll('.v36-ov:not(.inline40)').forEach(o=>{if(o.querySelector('.rt'))return;const b=[...o.querySelectorAll('button')].filter(x=>/^(ACU|BCU)$/.test(x.textContent.trim()));if(b.length)b[0].parentNode.style.display='none'});
+ const so=document.querySelector('#launchHost .v36-ov');if(so){const t=so.querySelector('[data-rv="trn"]'),on=!!(t&&t.classList.contains('on'));['.rt-cur','.rt-st','.rt-log'].forEach(q=>{const e=so.querySelector(q);if(e){const w=q==='.rt-st'?e.closest('.rt-card')||e:e;w.style.display=on?'none':''}})}}
+setInterval(misc,300);
+function deco(){const ed=window.isEdit40();
+ document.querySelectorAll('[data-add40],.x40').forEach(x=>{if(!ed)x.remove()});if(!ed)return;
+ const mk=(node)=>{const x=document.createElement('button');x.type='button';x.dataset.add40='1';x.dataset.node=node||'';x.contentEditable='false';x.className='ed40';x.textContent='＋ Додати несправність';return x};
+ const ch=document.querySelector('#info .chips');if(ch&&!ch.parentNode.querySelector('[data-add40]'))ch.after(mk(window.__cn));
+ document.querySelectorAll('#info .chip').forEach(c=>{if(c.querySelector('.x40'))return;const id=c.getAttribute('onclick').match(/'([^']+)'/)[1],s=document.createElement('span');s.className='x40';s.dataset.del40=id;s.dataset.src='sf';s.contentEditable='false';s.textContent='✕';c.appendChild(s)});
+ document.querySelectorAll('#launchHost .rt-chip[data-ft]').forEach(c=>{if(c.querySelector('.x40'))return;const s=document.createElement('span');s.className='x40';s.dataset.del40=c.dataset.ft;s.dataset.src='ft';s.contentEditable='false';s.textContent=' ✕';c.appendChild(s)});
+ const h=document.querySelector('#launchHost .rt-h');if(h&&!h.parentNode.querySelector(':scope>[data-add40]'))h.parentNode.insertBefore(mk(''),h)}
+setInterval(deco,300);
+window.ED40={open,apply,C,get data(){return C}};
+apply();window.resetSim40();render();
 })();
 if('serviceWorker'in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 </script></body></html>
